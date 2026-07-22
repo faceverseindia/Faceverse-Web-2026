@@ -10,12 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#F4E5DD;--cream-2:#EFD8CE;--cream-3:#E8CABE;
+    --cream:#F0DBD0;--cream-2:#EACFC2;--cream-3:#E3C2B3;
     --coral:#DC594E;--coral-2:#E6796D;
     --blue:#83BFE2;--blue-2:#57A3CF;
-    --brown:#4A2A1B;--brown-2:#6A4231;--ink:#3A2318;
-    --line:rgba(74,42,27,.22);--line-soft:rgba(74,42,27,.12);
-    --shadow:rgba(74,42,27,.10);
+    --brown:#47342A;--brown-2:#5E453A;--ink:#3A2A20;
+    --line:rgba(71,52,42,.22);--line-soft:rgba(71,52,42,.12);
+    --shadow:rgba(71,52,42,.10);
     --serif:"League Spartan",sans-serif;--sans:"League Spartan",sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -69,7 +69,7 @@
 
   /* ---------- NAV ---------- */
   header.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s ease;border-bottom:1px solid transparent}
-  header.nav.scrolled{background:rgba(244,229,221,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+  header.nav.scrolled{background:rgba(240,219,208,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:92px}
   .brand{display:flex;align-items:center;gap:13px;text-decoration:none;cursor:pointer}
   .brand .mark{width:20px;height:46px;flex-shrink:0;display:inline-block;transition:transform .5s}
@@ -112,7 +112,7 @@
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
   .hero-art{position:relative;display:flex;justify-content:center;align-items:center}
   .mesh-wrap{position:relative;width:100%;max-width:260px}
-  .mesh-face{display:block;width:100%;height:500px;filter:drop-shadow(0 18px 30px rgba(74,42,27,.12))}
+  .mesh-face{display:block;width:100%;height:500px;filter:drop-shadow(0 18px 30px rgba(71,52,42,.12))}
   .mesh-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
   .mesh-lines path{fill:none;stroke:var(--blue-2);stroke-width:1.2;stroke-dasharray:4 5;animation:dashmove 18s linear infinite;opacity:.6}
   .mesh-lines circle{fill:var(--coral);animation:pulse 2.6s ease-in-out infinite}
@@ -150,8 +150,8 @@
   .cd-left h3 em{color:var(--coral)}
   .cd-timer{display:flex;gap:14px}
   .cd-unit{text-align:center;min-width:78px}
-  .cd-unit .v{font-family:var(--serif);font-weight:700;font-size:2.6rem;color:var(--cream);line-height:1;background:rgba(244,229,221,.08);border:1px solid rgba(244,229,221,.16);border-radius:3px;padding:14px 6px}
-  .cd-unit .u{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,229,221,.65);margin-top:8px;font-weight:700}
+  .cd-unit .v{font-family:var(--serif);font-weight:700;font-size:2.6rem;color:var(--cream);line-height:1;background:rgba(240,219,208,.08);border:1px solid rgba(240,219,208,.16);border-radius:3px;padding:14px 6px}
+  .cd-unit .u{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,219,208,.65);margin-top:8px;font-weight:700}
 
   /* ---------- ABOUT ---------- */
   .about{padding:78px 0}
@@ -162,7 +162,7 @@
   .why-box{background:var(--brown);color:var(--cream);padding:40px 38px;border-radius:3px;position:relative;overflow:hidden}
   .why-box h3{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-bottom:22px;color:var(--cream)}
   .why-box ul{list-style:none}
-  .why-box li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(244,229,221,.14);font-size:.95rem;line-height:1.45}
+  .why-box li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(240,219,208,.14);font-size:.95rem;line-height:1.45}
   .why-box li:last-child{border-bottom:none}
   .why-box li::before{content:"";width:7px;height:7px;background:var(--coral);border-radius:50%;flex-shrink:0;margin-top:8px;transition:transform .3s}
   .why-box li:hover::before{transform:scale(1.6)}
@@ -193,8 +193,8 @@
   .wfac .lbl{font-size:.56rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:7px;display:flex;align-items:center;gap:6px}
   .wfac .lbl::before{content:"✦";font-size:.6rem}
   .wfac .names{font-size:.78rem;line-height:1.45;color:var(--brown-2);font-weight:500}
-  .card.feat .wfac{border-top-color:rgba(244,229,221,.22)}
-  .card.feat .wfac .names{color:rgba(244,229,221,.82)}
+  .card.feat .wfac{border-top-color:rgba(240,219,208,.22)}
+  .card.feat .wfac .names{color:rgba(240,219,208,.82)}
   .card.feat .wfac .lbl{color:var(--blue)}
   .cad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .ws-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:24px}
@@ -204,7 +204,7 @@
   .card:hover::before{transform:scaleX(1)}
   .card.feat{background:var(--brown);color:var(--cream);border-color:var(--brown)}
   .card.feat .tier,.card.feat .price .amt{color:var(--cream)}
-  .card.feat li{color:rgba(244,229,221,.86)}.card.feat li::before{background:var(--coral)}
+  .card.feat li{color:rgba(240,219,208,.86)}.card.feat li::before{background:var(--coral)}
   .card.feat::before{background:var(--coral)}
   .card.blue-top::before{background:var(--blue-2)}
   .tier{font-size:.64rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-2);margin-bottom:14px}
@@ -215,7 +215,7 @@
   .card li{display:flex;gap:11px;padding:7px 0;font-size:.9rem;line-height:1.4;color:var(--brown-2)}
   .card li::before{content:"";width:6px;height:6px;background:var(--coral);border-radius:1px;flex-shrink:0;margin-top:7px;transform:rotate(45deg)}
   .price{display:flex;align-items:baseline;gap:10px;padding-top:18px;border-top:1px solid var(--line-soft);margin-top:auto;flex-wrap:wrap}
-  .card.feat .price{border-top-color:rgba(244,229,221,.18)}
+  .card.feat .price{border-top-color:rgba(240,219,208,.18)}
   .price .amt{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--brown)}
   .price .free{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--blue);color:var(--brown);padding:4px 9px;border-radius:2px}
   .price .who{font-size:.7rem;color:var(--coral);font-weight:600;margin-left:auto;text-align:right;letter-spacing:.02em}
@@ -223,11 +223,11 @@
   .seats::before{content:"";width:7px;height:7px;border-radius:50%;animation:blink 1.4s ease-in-out infinite}
   .seats.left{background:rgba(220,89,78,.12);color:var(--coral)}
   .seats.left::before{background:var(--coral)}
-  .seats.full{background:rgba(74,42,27,.1);color:var(--brown-2)}
+  .seats.full{background:rgba(71,52,42,.1);color:var(--brown-2)}
   .seats.open{background:rgba(87,163,207,.16);color:var(--blue-2)}
   .seats.open::before{background:var(--blue-2)}
   .seats.full::before{background:var(--brown-2);animation:none}
-  .card.feat .seats.full{background:rgba(244,229,221,.14);color:var(--cream)}
+  .card.feat .seats.full{background:rgba(240,219,208,.14);color:var(--cream)}
   .card.soldout{opacity:.92}
   .card.soldout .price .amt{text-decoration:line-through;opacity:.5}
 
@@ -252,7 +252,7 @@
   .row .topic .kn{display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--coral);color:var(--cream);padding:2px 7px;border-radius:2px;margin-right:8px;vertical-align:middle}
   .row .topic .pn{display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--blue-2);color:var(--cream);padding:2px 7px;border-radius:2px;margin-right:8px;vertical-align:middle}
   .row .spk{font-size:.82rem;color:var(--coral);font-weight:600;white-space:nowrap;text-align:right}
-  .row.break{background:rgba(74,42,27,.05)}.row.break .topic{color:var(--brown-2)}
+  .row.break{background:rgba(71,52,42,.05)}.row.break .topic{color:var(--brown-2)}
 
   /* ---------- FACULTY / SPEAKERS ---------- */
   /* hover info tooltip */
@@ -268,7 +268,7 @@
   .key .ava{position:relative;z-index:2;width:92px;height:92px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,var(--coral),#e8a06b,var(--blue-2),var(--coral));margin-bottom:16px;transition:transform .4s}
   .key:hover .ava{transform:scale(1.05) rotate(-2deg)}
   .key .ava i{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:var(--cream);font-weight:800;font-size:1.9rem;color:var(--brown);font-style:normal;letter-spacing:-.02em;border:3px solid #fff}
-  .key .flag{position:absolute;bottom:2px;right:2px;z-index:3;font-size:.82rem;background:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(74,42,27,.2)}
+  .key .flag{position:absolute;bottom:2px;right:2px;z-index:3;font-size:.82rem;background:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(71,52,42,.2)}
   .key .name{font-weight:800;font-size:1.18rem;color:var(--brown);line-height:1.05;letter-spacing:-.01em}
   .key .handle{font-size:.74rem;color:var(--blue-2);font-weight:600;margin-top:5px}
   .key .role{font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-top:11px;background:rgba(220,89,78,.1);padding:5px 12px;border-radius:30px}
@@ -280,7 +280,7 @@
   .fac-tip{position:fixed;z-index:9000;width:330px;max-width:92vw;
     background:linear-gradient(165deg,#4a2a1b,#2c1810);
     color:var(--cream);border-radius:20px;padding:22px 22px 18px;
-    border:1px solid rgba(244,229,221,.16);
+    border:1px solid rgba(240,219,208,.16);
     box-shadow:0 24px 70px rgba(40,18,10,.55);
     opacity:0;transform:translateY(8px) scale(.97);
     transition:opacity .24s ease,transform .24s ease;pointer-events:auto;display:none}
@@ -292,14 +292,14 @@
   .fac-tip .ft-ava i{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:#2c1810;font-weight:800;font-size:1.15rem;color:var(--cream);font-style:normal;border:2px solid #4a2a1b}
   .fac-tip .ft-name{font-weight:800;font-size:1.16rem;line-height:1.04;color:var(--cream);letter-spacing:-.01em}
   .fac-tip .ft-role{font-size:.71rem;color:var(--blue);font-weight:600;margin-top:5px;line-height:1.3}
-  .fac-tip .ft-loc{font-size:.68rem;color:rgba(244,229,221,.55);margin-top:5px;font-weight:500}
-  .fac-tip .ft-bio{font-size:.83rem;line-height:1.5;color:rgba(244,229,221,.82);margin-bottom:14px}
+  .fac-tip .ft-loc{font-size:.68rem;color:rgba(240,219,208,.55);margin-top:5px;font-weight:500}
+  .fac-tip .ft-bio{font-size:.83rem;line-height:1.5;color:rgba(240,219,208,.82);margin-bottom:14px}
   .fac-tip .ft-quote{position:relative;font-size:.84rem;line-height:1.5;font-style:italic;color:var(--cream);padding:2px 0 2px 16px;margin-bottom:16px;border-left:2px solid var(--coral)}
   .fac-tip .ft-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0}
-  .fac-tip .ft-tags span{font-size:.57rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);background:rgba(244,229,221,.1);padding:5px 11px;border-radius:30px;border:1px solid rgba(244,229,221,.1)}
-  .fac-tip .ft-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:15px;padding-top:14px;border-top:1px solid rgba(244,229,221,.12)}
+  .fac-tip .ft-tags span{font-size:.57rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);background:rgba(240,219,208,.1);padding:5px 11px;border-radius:30px;border:1px solid rgba(240,219,208,.1)}
+  .fac-tip .ft-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:15px;padding-top:14px;border-top:1px solid rgba(240,219,208,.12)}
   .fac-tip .ft-topic{font-size:.73rem;font-weight:700;color:var(--coral)}
-  .fac-tip .ft-cta{font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(244,229,221,.7);white-space:nowrap}
+  .fac-tip .ft-cta{font-size:.65rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,219,208,.7);white-space:nowrap}
 
   .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin:54px 0 30px}
   .fchip{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.06em;padding:9px 18px;border:1px solid var(--line);background:transparent;color:var(--brown);cursor:pointer;transition:all .3s;border-radius:30px;text-transform:uppercase}
@@ -324,35 +324,35 @@
   .academic .eyebrow{color:var(--blue)}
   .academic h2.section-title{color:var(--cream)}.academic h2.section-title em{color:var(--coral)}
   .acad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-  .acad{border:1px solid rgba(244,229,221,.2);border-radius:4px;padding:38px 32px;transition:all .4s;position:relative;overflow:hidden;background:rgba(244,229,221,.03)}
-  .acad:hover{background:rgba(244,229,221,.07);transform:translateY(-6px);border-color:var(--coral)}
+  .acad{border:1px solid rgba(240,219,208,.2);border-radius:4px;padding:38px 32px;transition:all .4s;position:relative;overflow:hidden;background:rgba(240,219,208,.03)}
+  .acad:hover{background:rgba(240,219,208,.07);transform:translateY(-6px);border-color:var(--coral)}
   .acad .ico{width:58px;height:58px;border-radius:3px;background:var(--coral);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:transform .4s}
   .acad:hover .ico{transform:rotate(-8deg) scale(1.05)}
   .acad .ico svg{width:30px;height:30px;stroke:var(--cream);fill:none;stroke-width:1.8}
   .acad .ab{font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
   .acad h3{font-family:var(--serif);font-weight:600;font-size:1.5rem;color:var(--cream);line-height:1.1;margin-bottom:12px}
-  .acad p{font-size:.92rem;color:rgba(244,229,221,.78);line-height:1.55}
+  .acad p{font-size:.92rem;color:rgba(240,219,208,.78);line-height:1.55}
   .acad .res{margin-top:18px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coral)}
   /* abstract guidelines */
   .abs{margin-top:54px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start}
   .abs-head{font-weight:800;font-size:1.3rem;color:var(--cream);margin-bottom:6px}
   .abs-head .sub{display:block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
   .abs-cats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px}
-  .abs-cats span{font-size:.62rem;font-weight:700;letter-spacing:.04em;color:var(--cream);background:rgba(244,229,221,.08);border:1px solid rgba(244,229,221,.14);padding:7px 12px;border-radius:30px}
+  .abs-cats span{font-size:.62rem;font-weight:700;letter-spacing:.04em;color:var(--cream);background:rgba(240,219,208,.08);border:1px solid rgba(240,219,208,.14);padding:7px 12px;border-radius:30px}
   .abs-rules{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:6px}
-  .abs-rules .r{font-size:.82rem;color:rgba(244,229,221,.8);line-height:1.4;display:flex;gap:9px}
+  .abs-rules .r{font-size:.82rem;color:rgba(240,219,208,.8);line-height:1.4;display:flex;gap:9px}
   .abs-rules .r::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral);flex-shrink:0;margin-top:7px}
   .abs-rules .r b{color:var(--cream);font-weight:700}
-  .abs-side{background:rgba(244,229,221,.04);border:1px solid rgba(244,229,221,.14);border-radius:14px;padding:26px 24px}
+  .abs-side{background:rgba(240,219,208,.04);border:1px solid rgba(240,219,208,.14);border-radius:14px;padding:26px 24px}
   .abs-side h4{font-size:.66rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:18px}
   .abs-tl{position:relative;padding-left:22px}
-  .abs-tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:rgba(244,229,221,.18)}
+  .abs-tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:rgba(240,219,208,.18)}
   .abs-tl .ev{position:relative;padding-bottom:18px}
   .abs-tl .ev:last-child{padding-bottom:0}
   .abs-tl .ev::before{content:"";position:absolute;left:-22px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--brown);border:2.5px solid var(--coral)}
   .abs-tl .ev .d{font-weight:800;font-size:.92rem;color:var(--cream)}
-  .abs-tl .ev .l{font-size:.7rem;color:rgba(244,229,221,.65);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
-  .abs-awards{margin-top:18px;font-size:.78rem;color:rgba(244,229,221,.78);line-height:1.5}
+  .abs-tl .ev .l{font-size:.7rem;color:rgba(240,219,208,.65);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+  .abs-awards{margin-top:18px;font-size:.78rem;color:rgba(240,219,208,.78);line-height:1.5}
   .abs-awards b{color:var(--coral)}
   @media(max-width:820px){.abs{grid-template-columns:1fr;gap:24px}.abs-rules{grid-template-columns:1fr}}
 
@@ -368,7 +368,7 @@
   .pt-row .inc{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brown);background:var(--blue);padding:4px 10px;border-radius:2px;white-space:nowrap}
   .pt-row .st{font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:30px;white-space:nowrap;margin-left:10px}
   .pt-row .st.l{background:rgba(220,89,78,.13);color:var(--coral)}
-  .pt-row .st.f{background:rgba(74,42,27,.1);color:var(--brown-2)}
+  .pt-row .st.f{background:rgba(71,52,42,.1);color:var(--brown-2)}
   .pt-row .st.o{background:rgba(87,163,207,.16);color:var(--blue-2)}
   .pt-row.dim .nm,.pt-row.dim .amt{opacity:.55}
   .pt-note{margin-top:26px;font-size:.85rem;color:var(--brown-2);line-height:1.6;text-align:center}
@@ -397,16 +397,16 @@
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--brown);color:var(--cream);padding:60px 0 36px}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(244,229,221,.16)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(240,219,208,.16)}
   .foot-brand .wordmark{font-size:2.2rem}
-  .foot-brand p{margin-top:16px;color:rgba(244,229,221,.7);font-size:.92rem;max-width:300px;line-height:1.6}
+  .foot-brand p{margin-top:16px;color:rgba(240,219,208,.7);font-size:.92rem;max-width:300px;line-height:1.6}
   .foot-col h5{font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
-  .foot-col a{display:block;color:rgba(244,229,221,.82);text-decoration:none;font-size:.92rem;padding:6px 0;transition:all .25s}
+  .foot-col a{display:block;color:rgba(240,219,208,.82);text-decoration:none;font-size:.92rem;padding:6px 0;transition:all .25s}
   .foot-col a:hover{color:var(--coral);padding-left:6px}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:14px}
-  .foot-bottom p{font-size:.8rem;color:rgba(244,229,221,.6);letter-spacing:.04em}
+  .foot-bottom p{font-size:.8rem;color:rgba(240,219,208,.6);letter-spacing:.04em}
   .foot-tags{display:flex;gap:22px;flex-wrap:wrap}
-  .foot-tags span{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,229,221,.7)}
+  .foot-tags span{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,219,208,.7)}
 
   @media(max-width:1080px){.key-grid{grid-template-columns:repeat(2,1fr)}.fac-grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:1000px){
@@ -470,7 +470,7 @@
     background:
       radial-gradient(120% 90% at 78% 18%,rgba(131,191,226,.28),transparent 55%),
       radial-gradient(110% 80% at 12% 92%,rgba(220,89,78,.16),transparent 50%),
-      radial-gradient(100% 100% at 50% 0%,rgba(244,229,221,.6),transparent 60%);
+      radial-gradient(100% 100% at 50% 0%,rgba(240,219,208,.6),transparent 60%);
     animation:haze 16s ease-in-out infinite}
   .hero-grid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
     background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
@@ -492,21 +492,21 @@
   .hswipe-track{display:flex;transition:transform .8s cubic-bezier(.5,0,.1,1)}
   .hslide{min-width:100%;box-sizing:border-box}
   .hslide.s-photo{display:flex;align-items:stretch}
-  .hphoto{position:relative;width:100%;border-radius:12px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 48px rgba(74,42,27,.2)}
+  .hphoto{position:relative;width:100%;border-radius:12px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 48px rgba(71,52,42,.2)}
   .hphoto img{width:100%;height:100%;object-fit:cover;display:block}
   .hphoto .tint{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:linear-gradient(120deg,rgba(220,89,78,.22),transparent 45%,rgba(131,191,226,.22))}
-  .hphoto .grade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 45%,rgba(74,42,27,.66) 100%)}
+  .hphoto .grade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 45%,rgba(71,52,42,.66) 100%)}
   .hphoto .corner{position:absolute;width:28px;height:28px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 2h4v6h6v4h-6v6h-4v-6H2V8h6z' fill='%23DC594E'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 2px 5px rgba(0,0,0,.4))}
   .hphoto .corner.tl{top:16px;left:16px}.hphoto .corner.tr{top:16px;right:16px}
-  .hphoto .badge{position:absolute;top:16px;left:54px;display:inline-flex;align-items:center;gap:7px;background:rgba(244,229,221,.92);color:var(--coral);font-size:.56rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border-radius:30px}
+  .hphoto .badge{position:absolute;top:16px;left:54px;display:inline-flex;align-items:center;gap:7px;background:rgba(240,219,208,.92);color:var(--coral);font-size:.56rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border-radius:30px}
   .hphoto .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral);animation:blink 1.4s ease-in-out infinite}
   .hphoto .hcap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2}
   .hphoto .hcap .names{font-weight:800;font-size:clamp(1.05rem,2vw,1.5rem);color:var(--cream);line-height:1.1;letter-spacing:-.01em}
   .hphoto .hcap .names .side{color:var(--blue);font-weight:600;font-size:.74em}
-  .hphoto .hcap .role{font-size:clamp(.74rem,1.2vw,.9rem);color:rgba(244,229,221,.88);font-weight:500;margin-top:6px}
+  .hphoto .hcap .role{font-size:clamp(.74rem,1.2vw,.9rem);color:rgba(240,219,208,.88);font-weight:500;margin-top:6px}
   .hphoto .hcap .role b{color:var(--coral);font-weight:700}
   .hswipe-dots{display:flex;gap:9px;margin-top:22px}
-  .hswipe-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(74,42,27,.25);cursor:pointer;transition:all .3s;padding:0}
+  .hswipe-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(71,52,42,.25);cursor:pointer;transition:all .3s;padding:0}
   .hswipe-dots button.on{background:var(--coral);width:26px;border-radius:5px}
   .hslide:first-child>*{animation:risein .8s ease both}
   .hslide:first-child>*:nth-child(1){animation-delay:.05s}
@@ -525,7 +525,7 @@
   .cover-tag b{font-weight:700;color:var(--brown)}
   .cover-tag span{color:var(--blue-2);font-weight:600}
   /* date / location capsule */
-  .cover-meta{display:inline-flex;align-items:stretch;gap:0;margin-top:clamp(24px,3vw,36px);background:rgba(255,255,255,.42);border:1px solid var(--line-soft);border-radius:8px;padding:6px;backdrop-filter:blur(6px);flex-wrap:wrap;box-shadow:0 10px 30px rgba(74,42,27,.06)}
+  .cover-meta{display:inline-flex;align-items:stretch;gap:0;margin-top:clamp(24px,3vw,36px);background:rgba(255,255,255,.42);border:1px solid var(--line-soft);border-radius:8px;padding:6px;backdrop-filter:blur(6px);flex-wrap:wrap;box-shadow:0 10px 30px rgba(71,52,42,.06)}
   .cover-meta .blk{padding:12px 20px}
   .cover-meta .blk .k{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-2);margin-bottom:7px}
   .cover-meta .blk .v{font-size:clamp(1rem,1.7vw,1.35rem);font-weight:700;color:var(--coral);line-height:1;letter-spacing:-.01em}
@@ -535,31 +535,31 @@
   .cover-cta .seatline{font-size:.74rem;font-weight:600;color:var(--brown-2);letter-spacing:.02em}
   .cover-cta .seatline b{color:var(--coral);font-weight:800}
   /* right-side register call-out card */
-  .cover-card{position:relative;background:var(--brown);color:var(--cream);border-radius:12px;padding:30px 28px;overflow:hidden;box-shadow:0 26px 50px rgba(74,42,27,.22);animation:risein .8s ease both;animation-delay:.4s}
+  .cover-card{position:relative;background:var(--brown);color:var(--cream);border-radius:12px;padding:30px 28px;overflow:hidden;box-shadow:0 26px 50px rgba(71,52,42,.22);animation:risein .8s ease both;animation-delay:.4s}
   .cover-card::before{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 2h4v6h6v4h-6v6h-4v-6H2V8h6z' fill='%23DC594E'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.12;animation:floaty 8s ease-in-out infinite}
   .cover-card .cc-live{display:inline-flex;align-items:center;gap:8px;font-size:.58rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
   .cover-card .cc-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral);animation:blink 1.3s ease-in-out infinite}
   .cover-card .cc-name{font-weight:800;font-size:1.5rem;line-height:.95;letter-spacing:-.01em}
   .cover-card .cc-name .f{color:var(--coral)}.cover-card .cc-name .v{color:var(--blue)}
   .cover-card .cc-yr{font-weight:300;font-size:1.5rem}
-  .cover-card .cc-sub{font-size:.78rem;color:rgba(244,229,221,.72);margin-top:8px;line-height:1.4;font-weight:500}
-  .cover-card .cc-seats{display:flex;align-items:baseline;gap:8px;margin:20px 0 4px;padding-top:18px;border-top:1px solid rgba(244,229,221,.16)}
+  .cover-card .cc-sub{font-size:.78rem;color:rgba(240,219,208,.72);margin-top:8px;line-height:1.4;font-weight:500}
+  .cover-card .cc-seats{display:flex;align-items:baseline;gap:8px;margin:20px 0 4px;padding-top:18px;border-top:1px solid rgba(240,219,208,.16)}
   .cover-card .cc-seats .big{font-weight:800;font-size:2.2rem;color:var(--cream);line-height:1}
   .cover-card .cc-seats .lbl{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
-  .cover-card .cc-bar{height:6px;border-radius:4px;background:rgba(244,229,221,.16);overflow:hidden;margin:12px 0 6px}
+  .cover-card .cc-bar{height:6px;border-radius:4px;background:rgba(240,219,208,.16);overflow:hidden;margin:12px 0 6px}
   .cover-card .cc-bar i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--coral),var(--blue-2));animation:fillbar 1.8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:.8s}
-  .cover-card .cc-fill{font-size:.66rem;color:rgba(244,229,221,.7);font-weight:600;letter-spacing:.04em}
+  .cover-card .cc-fill{font-size:.66rem;color:rgba(240,219,208,.7);font-weight:600;letter-spacing:.04em}
   .cover-card .cc-fill b{color:var(--coral);font-weight:800}
   .cover-card .cc-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:18px;background:var(--coral);color:var(--cream)!important;padding:15px 20px;border-radius:4px;font-weight:800;letter-spacing:.06em;font-size:.82rem;text-transform:uppercase;text-decoration:none;transition:all .3s;border:1px solid var(--coral)}
   .cover-card .cc-btn:hover{background:transparent;color:var(--coral)!important;transform:translateY(-2px)}
   .cover-card .cc-btn .arr{transition:transform .3s}
   .cover-card .cc-btn:hover .arr{transform:translateX(5px)}
-  .cover-card .cc-foot{text-align:center;font-size:.62rem;color:rgba(244,229,221,.55);margin-top:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  .cover-card .cc-foot{text-align:center;font-size:.62rem;color:rgba(240,219,208,.55);margin-top:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
   .cover-card .cc-surge{margin-top:14px;padding:12px 14px;border-radius:8px;background:rgba(220,89,78,.14);border:1px solid rgba(220,89,78,.4);position:relative;overflow:hidden}
-  .cover-card .cc-surge::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(244,229,221,.14),transparent);transform:translateX(-120%);animation:shimmer 3.4s ease-in-out infinite}
+  .cover-card .cc-surge::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(240,219,208,.14),transparent);transform:translateX(-120%);animation:shimmer 3.4s ease-in-out infinite}
   .cover-card .cc-surge .top{display:flex;align-items:center;gap:7px;font-size:.56rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
   .cover-card .cc-surge .top svg{width:12px;height:12px;fill:none;stroke:var(--coral);stroke-width:2}
-  .cover-card .cc-surge .msg{font-size:.78rem;line-height:1.4;color:rgba(244,229,221,.92);font-weight:500}
+  .cover-card .cc-surge .msg{font-size:.78rem;line-height:1.4;color:rgba(240,219,208,.92);font-weight:500}
   .cover-card .cc-surge .msg b{color:var(--cream);font-weight:800}
   .cover-card .cc-surge .msg .date{color:var(--coral);font-weight:800;white-space:nowrap}
   @keyframes shimmer{0%{transform:translateX(-120%)}55%,100%{transform:translateX(120%)}}
@@ -586,6 +586,65 @@
     .cover-cta{gap:10px}
   }
 </style>
+  <style>
+  /* ===== mobile refinements (additive; overrides earlier rules) ===== */
+  .nav-cta-mobile{display:none}
+  @media(max-width:760px){
+    .nav-cta-mobile{display:inline-flex;margin-left:auto;margin-right:12px;padding:10px 16px;font-size:.72rem}
+    .nav-links .btn{display:none}            /* register lives in the bar, not the dropdown */
+    .cover-body{gap:28px}
+    .cover-cta{flex-wrap:wrap}
+    .cover-cta .btn{flex:1;justify-content:center;min-width:150px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 16px}
+    body,section{overflow-x:hidden}
+    .cover-card{max-width:100%}
+    .btn.big{padding:14px 22px;font-size:.78rem}
+    h1.statement{font-size:clamp(2.3rem,11.5vw,3.4rem)}
+    h2.section-title{font-size:clamp(2rem,8.5vw,3rem)}
+    .marquee span{font-size:.95rem;margin:0 16px}
+    .cover-top{flex-wrap:wrap;gap:8px}
+    .pt-note{font-size:.82rem}
+    .cta-box,.cd-box{padding:26px 18px}
+  }
+  @media(max-width:380px){
+    .nav-cta-mobile{padding:9px 13px;font-size:.66rem}
+    .nav-logo{width:52px;height:58px}
+  }
+  </style>
+  <style>
+  /* ===== mobile: workshops as horizontal swipeable carousels ===== */
+  @media(max-width:760px){
+    .cad-grid, .ws-grid{
+      display:flex;
+      grid-template-columns:none;      /* override the stacked grid */
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      gap:14px;
+      padding:4px 16px 14px;
+      margin:0 -16px;                  /* bleed to screen edges */
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .cad-grid::-webkit-scrollbar, .ws-grid::-webkit-scrollbar{display:none}
+    .cad-grid > .card, .ws-grid > .card{
+      flex:0 0 84%;
+      max-width:84%;
+      scroll-snap-align:center;
+    }
+    /* subtle swipe hint under each row */
+    .cad-grid + .ws-sub::before,
+    .ws-grid::after{}
+    .swipe-hint{
+      display:block;text-align:center;font-size:.66rem;font-weight:700;
+      letter-spacing:.14em;text-transform:uppercase;color:var(--brown-2);
+      opacity:.6;margin:-6px 0 26px;
+    }
+  }
+  @media(min-width:761px){ .swipe-hint{display:none} }
+  </style>
 </head>
 <body>
 
@@ -605,6 +664,7 @@
       <a class="ig-nav" href="https://www.instagram.com/faceverseindia" target="_blank" rel="noopener" aria-label="Follow FaceVerse on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.9.07s-3.63 0-4.9-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5 0-4.74.07-.9.04-1.38.19-1.7.31-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.12.32-.27.8-.31 1.7C3.96 8.5 3.96 8.86 3.96 12s0 3.5.07 4.74c.04.9.19 1.38.31 1.7.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.12.8.27 1.7.31 1.24.07 1.6.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.19 1.7-.31.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.12-.32.27-.8.31-1.7.07-1.24.07-1.6.07-4.74s0-3.5-.07-4.74c-.04-.9-.19-1.38-.31-1.7a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.12-.8-.27-1.7-.31C15.5 4 15.14 4 12 4zm0 3.06A4.94 4.94 0 1 0 12 16.94 4.94 4.94 0 0 0 12 7.06zm0 8.14A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4zm6.3-8.34a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg></a>
       <a class="btn" href="https://forms.gle/TsPRmvFMVC3XuzbH9" target="_blank" rel="noopener">Register <span class="arr">→</span></a>
     </nav>
+    <a class="btn nav-cta-mobile" href="https://forms.gle/TsPRmvFMVC3XuzbH9" target="_blank" rel="noopener">Register</a>
     <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -677,7 +737,7 @@
       <aside class="cover-card">
         <span class="cc-live">Registration Open</span>
         <div class="cc-name"><span class="f">Face</span><span class="v">Verse</span> India <span class="cc-yr">2026</span></div>
-        <p class="cc-sub">India's defining facial plastic &amp; aesthetic surgery summit.</p>
+        <p class="cc-sub">India's finest facial aesthetics summit.</p>
         <div class="cc-seats"><span class="big">100</span><span class="lbl">Seats Only</span></div>
         <div class="cc-bar"><i></i></div>
         <p class="cc-fill"><b>Filling fast</b> — secure your place before the room closes.</p>
@@ -712,8 +772,8 @@
 <!-- ============ MARQUEE ============ -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Learn</span><span>Connect</span><span>Innovate</span><span>Transform</span><span>50+ Global Faculty</span><span>Only 100 Seats</span><span>Cadaver Labs Full</span>
-    <span>Learn</span><span>Connect</span><span>Innovate</span><span>Transform</span><span>50+ Global Faculty</span><span>Only 100 Seats</span><span>Cadaver Labs Full</span>
+    <span>India’s Finest Facial Aesthetics Summit</span><span>Learn</span><span>Connect</span><span>Innovate</span><span>Transform</span><span>50+ Global Faculty</span><span>Only 100 Seats</span><span>Cadaver Labs Full</span>
+    <span>India’s Finest Facial Aesthetics Summit</span><span>Learn</span><span>Connect</span><span>Innovate</span><span>Transform</span><span>50+ Global Faculty</span><span>Only 100 Seats</span><span>Cadaver Labs Full</span>
   </div>
 </div>
 
@@ -820,9 +880,9 @@
 
     <div class="ws-sub reveal">Cadaver Workshop Series</div>
     <div class="cad-grid">
-      <div class="card reveal">
+      <div class="card soldout reveal">
         <div class="tier">Entry Level</div><h4 class="brownc">Cadaver Observer</h4>
-        <span class="seats open">Open · Closing Soon</span>
+        <span class="seats full">Sold Out</span>
         <ul><li>Observe cadaver dissections up close</li><li>Access to all teaching segments</li><li>Pre-workshop video library</li><li>Group discussions &amp; Q&amp;A sessions</li><li>Observer Certification</li></ul>
         
         <div class="wfac"><div class="lbl">Faculty</div><div class="names">Dr. Rakesh Kumar · Dr. Arvind Kairo · Dr. Kapil Sikka · Dr. Kapil Soni · Dr. Ashish Gopal · Dr. Rajeev Kumar · Dr. Prateek Sharma · Dr. Shreya Garg</div></div>
@@ -842,10 +902,11 @@
         <ul><li>One dissector per cadaver — exclusive access</li><li>Rhinoplasty &amp; facial rejuvenation modules</li><li>Full hands-on surgical execution</li><li>Real-time intra-operative guidance</li><li>Dissector Certification</li></ul>
         
         <div class="wfac"><div class="lbl">Faculty</div><div class="names">Dr. Rakesh Kumar · Dr. Arvind Kairo · Dr. Kapil Sikka · Dr. Kapil Soni · Dr. Ashish Gopal · Dr. Rajeev Kumar · Dr. Prateek Sharma · Dr. Shreya Garg</div></div>
-        <div class="price"><span class="amt">₹45,000</span><span class="free" style="background:rgba(74,42,27,.12)">Waitlist</span></div>
+        <div class="price"><span class="amt">₹45,000</span><span class="free" style="background:rgba(71,52,42,.12)">Waitlist</span></div>
       </div>
     </div>
 
+    <div class="swipe-hint">Swipe for more →</div>
     <div class="ws-sub reveal">Aesthetic, Reconstructive &amp; Trauma Skills</div>
     <div class="ws-grid">
       <div class="card reveal">
@@ -854,7 +915,7 @@
         <ul><li>Botox &amp; dermal fillers · full-face planning</li><li>Microneedling, chemical peels &amp; MNRF</li><li>HIFU, PRP, exosomes, PDRN, threads</li><li>Laser hair removal &amp; skin resurfacing</li><li>Live demos + mannequin hands-on</li></ul>
         
         <div class="wfac"><div class="lbl">Faculty</div><div class="names">Dr. Hitesh Verma · Dr. Arun Yadav · Dr. Iftekhar Khan · Dr. Meghna Poonia · Dr. Chandni Jain · Dr. Prateek Sharma · Dr. Shreya Garg</div></div>
-        <div class="price"><span class="amt">₹45,000</span><span class="free">+ Conf Free</span><span class="who">Dermatologists + Surgeons</span></div>
+        <div class="price"><span class="amt">₹50,000</span><span class="free">+ Conf Free</span><span class="who">Dermatologists + Surgeons</span></div>
       </div>
       <div class="card reveal d2">
         <div class="tier">Observer Track</div><h4 class="brownc">Non-Surgical Observer</h4>
@@ -865,11 +926,11 @@
       </div>
       <div class="card blue-top reveal d2">
         <div class="tier">Live Demo + Hands-On</div><h4 class="brownc">Hair Transplant Workshop</h4>
-        <span class="seats left">Only 2 seats left</span>
+        <span class="seats full">Sold Out</span>
         <ul><li>Live demonstration of hair transplantation</li><li>Hairline design &amp; graft handling</li><li>Hands-on supervised training</li><li>Techniques &amp; best practices</li><li>Faculty-led practical session</li></ul>
         
         <div class="wfac"><div class="lbl">Faculty</div><div class="names">Dr. Iftekhar Khan · Dr. Neha Taneja · Dr. Prateek Sharma · Dr. Shreya Garg</div></div>
-        <div class="price"><span class="amt">₹17,500</span><span class="free">+ Conf Free</span><span class="who">All eligible PG doctors</span></div>
+        <div class="price"><span class="amt" style="text-decoration:line-through;opacity:.55">₹20,500</span><span class="free" style="background:rgba(71,52,42,.12)">Waitlist</span><span class="who">All eligible PG doctors</span></div>
       </div>
       <div class="card reveal">
         <div class="tier">Hands-On Workshop</div><h4 class="brownc">Facial Trauma</h4>
@@ -877,7 +938,7 @@
         <ul><li>Skull fracture fixation &amp; plating systems</li><li>Osteosynthesis &amp; surgical approaches</li><li>Anatomical orientation on skull models</li><li>Operator + assistant tracks per skull</li><li>Real-world surgical decision-making</li></ul>
         
         <div class="wfac"><div class="lbl">Faculty</div><div class="names">Dr. Ajoy Roy Choudhury · Dr. Rajesh Yadav · Dr. Prateek Sharma · Dr. Shreya Garg</div></div>
-        <div class="price"><span class="amt">₹35,000</span><span class="free">+ Conf Free</span><span class="who">Operator · Asst ₹17,500 + GST</span></div>
+        <div class="price"><span class="amt">₹38,000</span><span class="free">+ Conf Free</span><span class="who">Operator · Asst ₹17,500 + GST</span></div>
       </div>
       <div class="card blue-top reveal d2">
         <div class="tier">Hands-On Workshop</div><h4 class="brownc">Advanced Suturing &amp; Flaps</h4>
@@ -885,9 +946,10 @@
         <ul><li>Basic to advanced suturing techniques</li><li>Atraumatic tissue handling &amp; closure</li><li>Rotation, advancement &amp; transposition flaps</li><li>Microvascular suturing demonstration</li><li>Structured, supervised, hands-on</li></ul>
         
         <div class="wfac"><div class="lbl">Faculty</div><div class="names">Dr. Anup Singh · Dr. Poonam Sagar · Dr. Amit Chirom Singh · Dr. Rajeev Kumar · Dr. Kapil Sikka · Dr. Prateek Sharma · Dr. Shreya Garg</div></div>
-        <div class="price"><span class="amt">₹25,000</span><span class="free">+ Conf Free</span><span class="who">ENT / Plastics / OMFS</span></div>
+        <div class="price"><span class="amt">₹28,000</span><span class="free">+ Conf Free</span><span class="who">ENT / Plastics / OMFS</span></div>
       </div>
     </div>
+    <div class="swipe-hint">Swipe for more →</div>
   </div>
 </section>
 
@@ -1095,7 +1157,7 @@
     <div class="abs reveal">
       <div>
         <div class="abs-head"><span class="sub">Call for Abstracts</span>Paper &amp; Poster Presentations</div>
-        <p style="font-size:.9rem;color:rgba(244,229,221,.8);line-height:1.55;max-width:560px">Open to registered delegates — present your work to 500+ surgeons, dermatologists &amp; academics. Submit under any category:</p>
+        <p style="font-size:.9rem;color:rgba(240,219,208,.8);line-height:1.55;max-width:560px">Open to registered delegates — present your work to 500+ surgeons, dermatologists &amp; academics. Submit under any category:</p>
         <div class="abs-cats">
           <span>Facial Aesthetic Surgery</span><span>Rhinoplasty &amp; Septorhinoplasty</span><span>Oculoplastic &amp; Periorbital</span><span>Non-Surgical Rejuvenation</span><span>Facial Reconstruction</span><span>Regenerative &amp; Energy-Based</span><span>Innovation &amp; Technique</span><span>Complications &amp; Revision</span><span>Research</span>
         </div>
@@ -1118,8 +1180,8 @@
         <p class="abs-awards">Awards for <b>Best Paper</b> &amp; <b>Best Poster</b>. Accepted abstracts may feature in the conference souvenir &amp; official digital platform.</p>
       </aside>
     </div>
-    <p style="margin-top:30px;font-size:.8rem;color:rgba(244,229,221,.55);line-height:1.6;max-width:760px">
-      Conference registration is mandatory before submission. Residents may register for the F.A.Q., Paper Forum &amp; Poster Gallery. File name: <span style="color:rgba(244,229,221,.78)">FaceVerse_Abstract_FirstAuthorName.docx</span>. Late submissions will not be considered.
+    <p style="margin-top:30px;font-size:.8rem;color:rgba(240,219,208,.55);line-height:1.6;max-width:760px">
+      Conference registration is mandatory before submission. Residents may register for the F.A.Q., Paper Forum &amp; Poster Gallery. File name: <span style="color:rgba(240,219,208,.78)">FaceVerse_Abstract_FirstAuthorName.docx</span>. Late submissions will not be considered.
     </p>
     <div style="margin-top:24px" class="reveal"><a class="btn big" href="https://forms.gle/TsPRmvFMVC3XuzbH9" target="_blank" rel="noopener">Submit Abstract / Register <span class="arr">→</span></a></div>
   </div>
@@ -1134,21 +1196,21 @@
     </div>
     <div class="price-table reveal">
       <div class="pt-cat">Cadaver Workshop · Day 0</div>
-      <div class="pt-row"><span class="nm">Cadaver Observer</span><span class="amt">₹17,500</span><span class="inc">Conf Free<span class="st o">Open</span></span></div>
-      <div class="pt-row dim"><span class="nm">Cadaver Co-Dissector <span class="star">★</span></span><span class="amt">Enquire</span><span class="inc" style="background:rgba(74,42,27,.12);color:var(--brown-2)">Conf Free<span class="st f">Full</span></span></div>
-      <div class="pt-row dim"><span class="nm">Cadaver Dissector</span><span class="amt">₹45,000</span><span class="inc" style="background:rgba(74,42,27,.12);color:var(--brown-2)">Conf Free<span class="st f">Full</span></span></div>
+      <div class="pt-row dim"><span class="nm">Cadaver Observer</span><span class="amt" style="text-decoration:line-through">₹17,500</span><span class="inc" style="background:rgba(71,52,42,.12);color:var(--brown-2)">Conf Free<span class="st f">Sold Out</span></span></div>
+      <div class="pt-row dim"><span class="nm">Cadaver Co-Dissector <span class="star">★</span></span><span class="amt">Enquire</span><span class="inc" style="background:rgba(71,52,42,.12);color:var(--brown-2)">Conf Free<span class="st f">Full</span></span></div>
+      <div class="pt-row dim"><span class="nm">Cadaver Dissector</span><span class="amt">₹45,000</span><span class="inc" style="background:rgba(71,52,42,.12);color:var(--brown-2)">Conf Free<span class="st f">Full</span></span></div>
       <div class="pt-cat">Facial Trauma · Day 0</div>
       <div class="pt-row"><span class="nm">Facial Trauma Assistant</span><span class="amt">₹17,500</span><span class="inc">+ GST<span class="st l">2 Left</span></span></div>
-      <div class="pt-row"><span class="nm">Facial Trauma Operator</span><span class="amt">₹35,000</span><span class="inc">Conf Free<span class="st l">2 Left</span></span></div>
+      <div class="pt-row"><span class="nm">Facial Trauma Operator</span><span class="amt">₹38,000</span><span class="inc">Conf Free<span class="st l">2 Left</span></span></div>
       <div class="pt-cat">Aesthetic &amp; Reconstructive Skills · Day 0</div>
-      <div class="pt-row"><span class="nm">Non-Surgical Aesthetics (Live Demo + Hands-On)</span><span class="amt">₹45,000</span><span class="inc">Conf Free<span class="st l">1 Left</span></span></div>
+      <div class="pt-row"><span class="nm">Non-Surgical Aesthetics (Live Demo + Hands-On)</span><span class="amt">₹50,000</span><span class="inc">Conf Free<span class="st l">1 Left</span></span></div>
       <div class="pt-row"><span class="nm">Non-Surgical Observer</span><span class="amt">₹20,000</span><span class="inc">+ GST<span class="st o">Open</span></span></div>
-      <div class="pt-row"><span class="nm">Hair Transplant (Live Demo + Hands-On)</span><span class="amt">₹17,500</span><span class="inc">Conf Free<span class="st l">2 Left</span></span></div>
-      <div class="pt-row"><span class="nm">Advanced Suturing &amp; Flaps</span><span class="amt">₹25,000</span><span class="inc">Conf Free<span class="st l">1 Left</span></span></div>
+      <div class="pt-row dim"><span class="nm">Hair Transplant (Live Demo + Hands-On)</span><span class="amt" style="text-decoration:line-through">₹20,500</span><span class="inc" style="background:rgba(71,52,42,.12);color:var(--brown-2)">Conf Free<span class="st f">Sold Out</span></span></div>
+      <div class="pt-row"><span class="nm">Advanced Suturing &amp; Flaps</span><span class="amt">₹28,000</span><span class="inc">Conf Free<span class="st l">1 Left</span></span></div>
       <div class="pt-cat">Conference · Day 1 &amp; Day 2</div>
-      <div class="pt-row"><span class="nm">Main Conference (2 days)</span><span class="amt">₹8,500</span><span class="inc">100 Seats<span class="st l">Filling Fast</span></span></div>
+      <div class="pt-row"><span class="nm">Main Conference (2 days)</span><span class="amt">₹10,000</span><span class="inc">100 Seats<span class="st l">Filling Fast</span></span></div>
     </div>
-    <p class="pt-note reveal"><b>Only 100 total seats.</b> All seats are limited and allocated on a <b>first-come, first-served</b> basis. Cadaver Dissector &amp; Co-Dissector are now full — waitlist only. Seat confirmed only upon receipt of payment. Seats are non-transferable. A recognised postgraduate degree is essential for participation.</p>
+    <p class="pt-note reveal"><b>Only 100 total seats.</b> All seats are limited and allocated on a <b>first-come, first-served</b> basis. Cadaver workshops and Hair Transplant are now sold out — waitlist only. Pre-surge pricing has closed; current rates apply. Seat confirmed only upon receipt of payment. Seats are non-transferable. A recognised postgraduate degree is essential for participation.</p>
     <div style="text-align:center;margin-top:36px" class="reveal"><a class="btn big" href="https://forms.gle/TsPRmvFMVC3XuzbH9" target="_blank" rel="noopener">Register at the Form <span class="arr">→</span></a></div>
   </div>
 </section>
@@ -1227,8 +1289,8 @@
       </div>
       <div class="foot-col">
         <h5>Attend</h5>
-        <a href="https://forms.gle/TsPRmvFMVC3XuzbH9" target="_blank" rel="noopener">Register Now</a><a href="refund-policy.html">Refund Policy</a><a href="#venue">Venues</a><a href="https://www.instagram.com/faceverseindia" target="_blank" rel="noopener">Follow on Instagram</a>
-        <span style="display:block;color:rgba(244,229,221,.55);font-size:.86rem;padding-top:14px;line-height:1.5">25–27 September 2026<br>AIIMS &amp; The Ashok, New Delhi</span>
+        <a href="https://forms.gle/TsPRmvFMVC3XuzbH9" target="_blank" rel="noopener">Register Now</a><a href="https://wa.me/message/FVUNYF7VT4DVI1" target="_blank" rel="noopener">Chat on WhatsApp</a><a href="refund-policy.html">Refund Policy</a><a href="#venue">Venues</a><a href="https://www.instagram.com/faceverseindia" target="_blank" rel="noopener">Follow on Instagram</a>
+        <span style="display:block;color:rgba(240,219,208,.55);font-size:.86rem;padding-top:14px;line-height:1.5">25–27 September 2026<br>AIIMS &amp; The Ashok, New Delhi</span>
       </div>
     </div>
     <div class="foot-bottom">
@@ -1439,6 +1501,27 @@
   })();
 
 
+</script>
+
+<a class="wa-float" href="https://wa.me/message/FVUNYF7VT4DVI1" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3C9.4 3 4 8.3 4 14.9c0 2.3.7 4.5 1.9 6.4L4 29l7-1.8c1.8 1 3.9 1.5 6 1.5 6.6 0 12-5.3 12-11.9C29 8.3 23.6 3 16 3zm0 21.7c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.1 1.1 1.1-4-.2-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.5 9.6 10.2 5 16 5s10.5 4.6 10.5 9.9S21.8 24.7 16 24.7zm5.9-7.4c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1c-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+<style>
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:9998;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.workshops .card,.price-table .pt-row{cursor:pointer}
+@media(max-width:600px){.wa-float{width:52px;height:52px;right:16px;bottom:16px}}
+</style>
+<script>
+(function(){
+  var FORM="https://forms.gle/TsPRmvFMVC3XuzbH9";
+  document.querySelectorAll(".workshops .card, .price-table .pt-row").forEach(function(el){
+    el.addEventListener("click",function(e){
+      if(e.target.closest("a")) return;
+      window.open(FORM,"_blank","noopener");
+    });
+  });
+})();
 </script>
 </body>
 </html>
