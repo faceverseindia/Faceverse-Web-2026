@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FaceVerse India 2026 — Program</title>
+<meta name="theme-color" content="#F7E4DD">
+<meta name="description" content="Interactive program for FaceVerse India 2026 — Facial Plastic & Aesthetic Surgery Summit. Two halls, two days, filter by interest, build your plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7E4DD; --card:#FFFDFB; --card-2:#FCF3EF;
+  --ink:#38211A; --ink-soft:#7A5E54; --ink-faint:#A98C80;
+  --line:#EBD6CC; --line-strong:#DcBcAF;
+  --coral:#D2544C; --coral-deep:#B23F38; --coral-soft:#F6DCD7;
+  --sky:#6FB4D8; --sky-deep:#3E86AE; --sky-soft:#DCEDF5;
+  --focus:#1c6fb0;
+  --t-rhino:#C0453F; --t-nonsurg:#2E8B8B; --t-facelift:#CF7A3A; --t-eyes:#6A5CA8;
+  --t-recon:#5C8A3E; --t-palsy:#B4508C; --t-gender:#3B72BE; --t-hair:#B08A2A;
+  --t-regen:#159A79; --t-practice:#7B7F86;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Archivo",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --shadow-1:0 1px 2px rgba(80,40,30,.06), 0 2px 8px rgba(80,40,30,.05);
+  --shadow-2:0 6px 22px rgba(80,40,30,.13), 0 2px 6px rgba(80,40,30,.08);
+  --nav-h:64px;
+  --ppm:3.5;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:var(--sans); color:var(--ink); background:var(--paper);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom));
+  overscroll-behavior-y:none;
+}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+img{max-width:100%;display:block}
+
+/* ============ TOP BAR ============ */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  display:flex;align-items:center;gap:10px;
+  padding:calc(env(safe-area-inset-top) + 9px) 14px 9px;
+  background:rgba(247,228,221,.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:9px;min-width:0}
+.brand img{width:30px;height:30px;border-radius:7px}
+.brand .bt{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.brand .bt b{color:var(--coral);font-weight:600}
+.brand .bt i{color:var(--sky-deep);font-style:normal;font-weight:600}
+.topbar .sp{flex:1}
+.icobtn{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--ink);transition:background .15s}
+.icobtn:hover,.icobtn:active{background:var(--card-2)}
+.icobtn svg{width:21px;height:21px}
+
+/* ============ VIEWS ============ */
+main{max-width:820px;margin:0 auto}
+.view{display:none;padding:0 14px 26px}
+.view.on{display:block;animation:fade .22s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view.on{animation:none}}
+
+.vhead{padding:20px 2px 6px}
+.vhead h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,7vw,34px);line-height:1.02;letter-spacing:-.02em;margin:0}
+.vhead p{margin:7px 0 0;color:var(--ink-soft);font-size:14.5px;max-width:52ch}
+
+/* ============ SCHEDULE: day switch ============ */
+.daybar{display:flex;gap:8px;margin:14px 0 4px}
+.dayseg{
+  flex:1;padding:10px 6px 9px;border-radius:14px;background:var(--card);
+  border:1px solid var(--line);text-align:center;line-height:1.1;
+  transition:all .16s;box-shadow:var(--shadow-1)
+}
+.dayseg .dn{font-weight:700;font-size:14px;display:block}
+.dayseg .dd{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+.dayseg[aria-selected="true"]{background:var(--ink);border-color:var(--ink);box-shadow:var(--shadow-2)}
+.dayseg[aria-selected="true"] .dn{color:#fff}
+.dayseg[aria-selected="true"] .dd{color:#E9D3C9}
+
+/* control row: view toggle + hall filter live legend */
+.ctrls{display:flex;align-items:center;gap:10px;margin:12px 0 2px;flex-wrap:wrap}
+.toggle{display:inline-flex;background:var(--card-2);border:1px solid var(--line);border-radius:12px;padding:3px}
+.toggle button{padding:7px 13px;border-radius:9px;font-weight:600;font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:6px;transition:all .15s}
+.toggle button svg{width:16px;height:16px}
+.toggle button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow-1)}
+.legend{display:flex;gap:12px;margin-left:auto;font-size:12px;color:var(--ink-soft)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.legend .la{background:var(--coral)}.legend .lb{background:var(--sky)}
+
+/* track filter chips */
+.trackrow{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 8px;margin:0 -14px;padding-left:14px;padding-right:14px;scrollbar-width:none;scroll-snap-type:x proximity}
+.trackrow::-webkit-scrollbar{display:none}
+.tchip{
+  flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:7px;
+  padding:8px 13px;border-radius:11px;background:var(--card);border:1px solid var(--line);
+  font-weight:600;font-size:13px;white-space:nowrap;color:var(--ink);transition:all .14s;box-shadow:var(--shadow-1)
+}
+.tchip .dot{width:9px;height:9px;border-radius:50%;background:var(--tc,var(--ink-soft))}
+.tchip[aria-pressed="true"]{color:#fff;background:var(--tc,var(--ink));border-color:transparent}
+.tchip[aria-pressed="true"] .dot{background:rgba(255,255,255,.9)}
+.tchip.all[aria-pressed="true"]{background:var(--ink);--tc:var(--ink)}
+.filternote{font-size:13px;color:var(--ink-soft);padding:2px 2px 0;min-height:20px}
+.filternote b{color:var(--coral-deep);font-weight:700}
+.clearlink{color:var(--coral-deep);font-weight:600;font-size:13px;text-decoration:underline;text-underline-offset:2px;margin-left:8px}
+
+/* ============ TIMELINE (GRID) ============ */
+.lanehead{
+  position:sticky;top:calc(env(safe-area-inset-top) + 52px);z-index:20;
+  display:grid;grid-template-columns:44px 1fr 1fr;gap:0;
+  background:rgba(247,228,221,.94);backdrop-filter:blur(6px);
+  padding:8px 0 8px;margin-top:6px;border-bottom:1px solid var(--line)
+}
+.lanehead .lh{display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;font-size:13.5px}
+.lanehead .lh .pin{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;color:#fff}
+.lanehead .lh.a .pin{background:var(--coral)}
+.lanehead .lh.b .pin{background:var(--sky-deep)}
+.lanehead .lh svg{width:12px;height:12px}
+
+.cal{position:relative;margin-top:0}
+.cal .cols{display:grid;grid-template-columns:44px 1fr 1fr;position:relative;z-index:2}
+.gutter{position:relative}
+.gutter .hr{position:absolute;left:0;right:0;transform:translateY(-50%);font-size:11px;color:var(--ink-faint);font-variant-numeric:tabular-nums;padding-right:6px;text-align:right;width:38px}
+.hlines{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hlines .ln{position:absolute;left:44px;right:0;height:1px;background:var(--line)}
+.lane{position:relative;border-left:1px solid var(--line)}
+.evt{
+  position:absolute;left:5px;right:5px;border-radius:10px;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-1);
+  padding:6px 8px 6px 11px;text-align:left;transition:transform .12s, box-shadow .12s;
+  display:flex;flex-direction:column;gap:2px
+}
+.evt:active{transform:scale(.985)}
+.evt::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ec,var(--coral))}
+.evt .et{font-size:10.5px;font-weight:700;color:var(--ec,var(--ink-faint));font-variant-numeric:tabular-nums;line-height:1}
+.evt .eti{font-family:var(--serif);font-weight:600;font-size:13px;line-height:1.16;letter-spacing:-.01em;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.evt .esp{font-size:11px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:auto}
+.evt.saved{border-color:var(--coral);box-shadow:0 0 0 1.5px var(--coral-soft), var(--shadow-1)}
+.evt .savemark{position:absolute;top:5px;right:5px;width:15px;height:15px;color:var(--coral);display:none}
+.evt.saved .savemark{display:block}
+.evt.short{gap:1px}
+.evt.short .eti{-webkit-line-clamp:1;font-size:12.5px}
+.evt.short .esp{display:none}
+.evt.tiny{justify-content:center}
+.evt.tiny .et{display:none}
+.evt.tiny .eti{-webkit-line-clamp:1;font-size:12px}
+.evt.tiny .esp{display:none}
+.evt.plenary{background:linear-gradient(180deg,var(--card),var(--card-2));border-style:dashed}
+.evt.brk{background:repeating-linear-gradient(135deg,var(--card-2),var(--card-2) 9px,#F7EBE5 9px,#F7EBE5 18px);align-items:center;justify-content:center;text-align:center}
+.evt.brk .eti{font-family:var(--sans);font-weight:700;font-size:12px;color:var(--ink-soft);letter-spacing:.02em}
+.evt.brk::before{display:none}
+.badge{align-self:flex-start;font-size:9.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 6px;border-radius:6px;color:#fff;margin-bottom:1px}
+.badge.key{background:var(--coral-deep)}.badge.pan{background:var(--sky-deep)}
+.nowline{position:absolute;left:44px;right:0;height:2px;background:var(--coral);z-index:5;box-shadow:0 0 0 1px rgba(210,84,76,.25)}
+.nowline::before{content:"";position:absolute;left:-4px;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--coral)}
+
+/* ============ TIMELINE (LIST) ============ */
+.feed{margin-top:8px}
+.hsep{display:flex;align-items:center;gap:10px;margin:16px 2px 8px;color:var(--ink-faint)}
+.hsep b{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
+.hsep .rule{flex:1;height:1px;background:var(--line)}
+.row{
+  display:grid;grid-template-columns:52px 1fr auto;gap:11px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:15px;
+  padding:13px 13px 13px 12px;margin-bottom:9px;box-shadow:var(--shadow-1);
+  text-align:left;width:100%;transition:transform .12s,box-shadow .12s;position:relative;overflow:hidden
+}
+.row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ec,var(--coral))}
+.row:active{transform:scale(.99)}
+.row.saved{box-shadow:0 0 0 1.5px var(--coral-soft),var(--shadow-1);border-color:var(--coral)}
+.row .rt{font-variant-numeric:tabular-nums;padding-left:6px}
+.row .rt .t1{font-weight:700;font-size:14px}
+.row .rt .t2{font-size:11px;color:var(--ink-faint);margin-top:1px}
+.row .rb{min-width:0}
+.hallpill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;margin-bottom:6px}
+.hallpill.a{background:var(--coral-soft);color:var(--coral-deep)}
+.hallpill.b{background:var(--sky-soft);color:var(--sky-deep)}
+.row .rti{font-family:var(--serif);font-weight:600;font-size:16px;line-height:1.16;letter-spacing:-.01em;margin:0}
+.row .rsp{display:flex;align-items:center;gap:8px;margin-top:8px}
+.avatar{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10.5px;font-weight:700;flex:none;letter-spacing:.02em}
+.row .rsp .nm{font-size:13px;color:var(--ink);font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--ink-soft);background:var(--card-2);border:1px solid var(--line);padding:3px 8px;border-radius:7px}
+.pill .dot{width:7px;height:7px;border-radius:50%}
+.row .rmeta{display:flex;gap:12px;margin-top:8px;font-size:11.5px;color:var(--ink-soft)}
+.row .rmeta span{display:inline-flex;align-items:center;gap:4px}
+.row .rmeta svg{width:13px;height:13px;opacity:.75}
+.savebtn{width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:var(--card-2);display:grid;place-items:center;color:var(--coral);flex:none;transition:all .15s}
+.savebtn svg{width:19px;height:19px}
+.savebtn:hover{background:var(--coral-soft)}
+.savebtn[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:#fff}
+
+.empty{text-align:center;padding:46px 20px;color:var(--ink-soft)}
+.empty .em-ic{width:52px;height:52px;margin:0 auto 14px;color:var(--line-strong)}
+.empty h3{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink);margin:0 0 6px}
+.empty p{margin:0 auto;max-width:34ch;font-size:14px}
+.empty .cta{margin-top:16px;display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:#fff;padding:11px 18px;border-radius:12px;font-weight:600;font-size:14px}
+
+/* ============ WORKSHOPS (Day 0) ============ */
+.wshop{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px;box-shadow:var(--shadow-1)}
+.wshop h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 4px}
+.wshop .loc{display:inline-flex;align-items:center;gap:6px;color:var(--coral-deep);font-weight:600;font-size:13.5px;margin-bottom:12px}
+.wshop .loc svg{width:15px;height:15px}
+.wshop p{color:var(--ink-soft);font-size:14.5px;line-height:1.55;margin:0 0 10px}
+.wshop .tag{display:inline-block;background:var(--card-2);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin:3px 5px 0 0}
+
+/* ============ TRACKS VIEW ============ */
+.tracks-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:8px}
+.tcard{
+  text-align:left;border-radius:16px;padding:15px 14px 13px;color:#fff;position:relative;overflow:hidden;
+  min-height:118px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow-1);
+  transition:transform .13s,box-shadow .13s
+}
+.tcard:active{transform:scale(.98)}
+.tcard .plus-bg{position:absolute;right:-14px;top:-14px;width:74px;height:74px;opacity:.16}
+.tcard .plus-bg svg{width:100%;height:100%}
+.tcard h3{font-family:var(--serif);font-weight:600;font-size:17.5px;line-height:1.12;margin:0;letter-spacing:-.01em;position:relative}
+.tcard .cnt{font-size:12.5px;font-weight:600;opacity:.92;margin-top:8px;position:relative}
+.tcard .cnt b{font-size:22px;font-family:var(--serif)}
+
+/* ============ SPEAKERS VIEW ============ */
+.searchbox{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 14px;margin-top:12px;box-shadow:var(--shadow-1)}
+.searchbox svg{width:18px;height:18px;color:var(--ink-faint);flex:none}
+.searchbox input{border:0;background:none;flex:1;font-size:15px;color:var(--ink);min-width:0}
+.searchbox input:focus{outline:none}
+.speaker{display:flex;align-items:center;gap:13px;padding:12px 6px;border-bottom:1px solid var(--line);width:100%;text-align:left}
+.speaker .avatar{width:44px;height:44px;font-size:15px}
+.speaker .snm{font-weight:600;font-size:15.5px}
+.speaker .smeta{font-size:12.5px;color:var(--ink-soft);margin-top:3px;display:flex;align-items:center;gap:8px}
+.speaker .tdots{display:flex;gap:3px}
+.speaker .tdots i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.speaker .chev{margin-left:auto;color:var(--ink-faint)}
+.speaker .chev svg{width:18px;height:18px}
+
+/* ============ MY PLAN ============ */
+.plan-head{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.plan-count{font-size:13.5px;color:var(--ink-soft)}
+.plan-count b{color:var(--ink);font-weight:700}
+.clash{display:flex;align-items:flex-start;gap:9px;background:#FBEAD7;border:1px solid #EBC79A;border-radius:12px;padding:11px 13px;margin:12px 0;color:#8A5A1E;font-size:13px;line-height:1.45}
+.clash svg{width:18px;height:18px;flex:none;margin-top:1px;color:#C88A2E}
+.plan-day{font-family:var(--serif);font-weight:600;font-size:17px;margin:18px 2px 4px}
+.row.clashing::after{content:"Overlaps";position:absolute;top:11px;right:56px;font-size:10px;font-weight:700;color:#B5771E;background:#FBEAD7;padding:2px 7px;border-radius:6px}
+
+/* ============ ABOUT (story + journal) ============ */
+.story .lede{font-family:var(--serif);font-weight:600;font-size:clamp(21px,5.4vw,27px);line-height:1.18;letter-spacing:-.015em;margin:12px 0 16px}
+.story p{color:var(--ink-soft);font-size:15px;line-height:1.62;margin:0 0 13px;max-width:64ch}
+.story .pull{border-left:3px solid var(--coral);padding-left:14px;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--coral-deep);margin:18px 0}
+.jgrid{display:grid;gap:12px;margin-top:14px}
+.jpost{display:flex;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:13px;box-shadow:var(--shadow-1);text-align:left;align-items:center}
+.jpost .thumb{width:60px;height:60px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff}
+.jpost .thumb svg{width:26px;height:26px}
+.jpost .jk{font-size:11px;font-weight:700;color:var(--ink-faint);letter-spacing:.02em}
+.jpost h4{font-family:var(--serif);font-weight:600;font-size:15.5px;line-height:1.2;margin:3px 0 3px}
+.jpost p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+.sample-note{font-size:12px;color:var(--ink-faint);font-style:italic;margin-top:12px;text-align:center}
+.aboutfacts{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.aboutfacts .f{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:9px 13px;box-shadow:var(--shadow-1)}
+.aboutfacts .f b{display:block;font-family:var(--serif);font-size:15px}
+.aboutfacts .f span{font-size:11.5px;color:var(--ink-soft)}
+
+/* ============ BOTTOM NAV ============ */
+.botnav{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:rgba(255,253,251,.92);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);height:calc(var(--nav-h) + env(safe-area-inset-bottom))
+}
+.navitem{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ink-faint);position:relative;transition:color .15s}
+.navitem svg{width:23px;height:23px}
+.navitem .nl{font-size:10.5px;font-weight:600;letter-spacing:.01em}
+.navitem[aria-selected="true"]{color:var(--coral)}
+.navitem .badge-n{position:absolute;top:7px;left:calc(50% + 5px);min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:var(--coral);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center}
+
+/* ============ BOTTOM SHEET ============ */
+.sheet-wrap{position:fixed;inset:0;z-index:70;display:none}
+.sheet-wrap.open{display:block}
+.sheet-bg{position:absolute;inset:0;background:rgba(40,20,15,.42);opacity:0;transition:opacity .22s}
+.sheet-wrap.open .sheet-bg{opacity:1}
+.sheet{
+  position:absolute;left:0;right:0;bottom:0;max-width:820px;margin:0 auto;
+  background:var(--card);border-radius:22px 22px 0 0;
+  padding:8px 18px calc(24px + env(safe-area-inset-bottom));
+  max-height:88vh;overflow-y:auto;transform:translateY(100%);transition:transform .28s cubic-bezier(.32,.72,0,1);
+  box-shadow:0 -8px 40px rgba(40,20,15,.22)
+}
+.sheet-wrap.open .sheet{transform:none}
+@media (prefers-reduced-motion:reduce){.sheet,.sheet-bg{transition:none}}
+.grip{width:38px;height:4px;border-radius:3px;background:var(--line-strong);margin:6px auto 14px}
+.sheet h2{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.14;letter-spacing:-.015em;margin:0 0 12px}
+.sheet .sh-meta{display:flex;flex-direction:column;gap:11px;margin:14px 0}
+.sh-meta .m{display:flex;align-items:center;gap:11px;font-size:14.5px}
+.sh-meta .m .mi{width:34px;height:34px;border-radius:10px;background:var(--card-2);display:grid;place-items:center;color:var(--ink-soft);flex:none}
+.sh-meta .m .mi svg{width:17px;height:17px}
+.sh-meta .m .mk{color:var(--ink-faint);font-size:11.5px;font-weight:600}
+.sh-meta .m .mv{font-weight:600}
+.sheet .sh-block{background:var(--card-2);border-radius:13px;padding:13px 15px;margin:14px 0;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.sheet .sh-block .lbl{font-size:11px;font-weight:700;color:var(--ink-faint);letter-spacing:.03em;margin-bottom:4px}
+.sheet .sh-save{width:100%;margin-top:6px;background:var(--coral);color:#fff;border-radius:14px;padding:15px;font-weight:700;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .15s}
+.sheet .sh-save svg{width:20px;height:20px}
+.sheet .sh-save[aria-pressed="true"]{background:var(--ink)}
+.sheet .sh-save:hover{background:var(--coral-deep)}
+.sheet .sh-save[aria-pressed="true"]:hover{background:#2a1812}
+.sh-sess{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;background:var(--card)}
+.sh-sess .ss-t{font-size:11.5px;color:var(--ink-faint);font-weight:600;display:flex;gap:8px;align-items:center}
+.sh-sess .ss-ti{font-family:var(--serif);font-weight:600;font-size:15px;margin-top:3px;line-height:1.2}
+
+/* search overlay */
+.search-ov{position:fixed;inset:0;z-index:80;background:var(--paper);display:none;flex-direction:column}
+.search-ov.open{display:flex;animation:fade .18s ease both}
+.search-top{display:flex;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;border-bottom:1px solid var(--line)}
+.search-top .searchbox{flex:1;margin:0}
+.search-top .cancel{font-weight:600;color:var(--coral-deep);font-size:14px;padding:6px}
+.search-results{flex:1;overflow-y:auto;padding:8px 14px 30px;max-width:820px;margin:0 auto;width:100%}
+.sr-cat{font-size:11px;font-weight:700;color:var(--ink-faint);letter-spacing:.04em;margin:16px 2px 6px}
+.sr-hint{text-align:center;color:var(--ink-faint);padding:50px 20px;font-size:14px}
+
+@media (min-width:760px){
+  :root{--ppm:2.5}
+  .evt .eti{font-size:14.5px}
+  .evt .esp{font-size:12px}
+  .tracks-grid{grid-template-columns:1fr 1fr 1fr}
+  .jgrid{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:360px){
+  .brand .bt{font-size:14px}
+  .dayseg .dd{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9.5h16M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="16" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="16" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 20a5.5 5.5 0 0111 0M16 5.2a3.4 3.4 0 010 6.4M17.5 14.4A5.5 5.5 0 0121 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4h12v16l-6-4-6 4z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M16 16l4 4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5M12 7.6h.01" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4l9 15.5H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4M12 17h.01" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3v4h4M9.5 13h5M9.5 16.5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+</defs>
+</svg>
+
+<header class="topbar">
+  <div class="brand"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAAEECAMAAAD0yMp/AAAAkFBMVEX+7+j97OT86+T86uP66eL76OD85t355t/459/45d725d745N335N735N335Nz25N315Nz349z2493249z249v149z24tv14tv23Nby4dnv3NTr183szsbgzcTcxrrLzNCmyN/Xu7HOt6vMsqXapJ2mtsWAuujCq56xmo3nZWToW2HkYmGLcGC5U05gPihYNR6h8rikAAAwdUlEQVR42u2dCXujuNKoWYRBYMBYLGZNgMwH6fZN/v+/u1UlgcF2Oum4l3HO6DlnxsY4Y71IpdpU0vz/+ab9h+A/BIhgX3j/6wjEfwj+QwAI+H8I/kPwH4L/EPyH4D8E/yH4D8EfQsC567rcddzzxrfbr4+AU0/xHwE0j1rkefB6Kz8O8bPtF0WAHd9y1w/f+DzwPdTMQ991fcQUfjEE0H/HDT3s6PsNYXjeFpFtvwgCmvow7P0PP9itnCIBjpr7R4APM7rB9gzvHQEP3SAObiAQ7MK7RgDyHcZ/EIS3IHDvGAGIgODmP3LXo2Abhj/49YFsURThv74kAvob15e0QIg48rnjOAyag83m2ziORfCFJgJMgeja9UgIwS3T0E07LopyakXuWbpumhYXsRBfAQEIAf9iEdj6YbJ3TJPlZd10/QCtxzYO9Hrou6Yuc2YYlruLT6P/PifC1t1eroIi9plhFXWLnW1rePDCNk1TO/Q6PPy8KKumRTBdU+WWzvg0GO4RwXZ7CSASvmnmdTeMXVNCDw2T2fAfESJjTWdkwvdsixm6buWHse+Gvq0PTLfvdSJs+TY4+9FCMD2u+6Gv214zbR4mceRJTIneNaag9SEUSRK6vOdGXDZwc1s60d9C4Ce3iAHnXKqLkLESnmydM61rWLbWfp2htE7fCOxy4JlvGea+asfaEn9pItzmDAnOAZh2PQxNYZp25g6Fs/7YKYblyiFY3esC5k3s2Vorx8edIXDD9VIoItNpYABYppOIyCoHa73iRazqzXhxv9G02G+YGKnR3SeClTsgSJkFAErDIvGO/dPXCGK9bY3FpVTvalNML+8RQciXa0Hi6CUA0O1EqEfc12yNINX7qctqIvSlFd0zAtddasF63o+1Zi96OOT22Te8obCXAyecpcUJgXtXCE6DQDgGzIFez04dBFFwvlyA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" alt=""><span class="bt"><b>Face</b><i>Verse</i> India 2026</span></div>
+  <div class="sp"></div>
+  <button class="icobtn" id="btnSearch" aria-label="Search sessions and speakers"><svg><use href="#i-search"/></svg></button>
+  <button class="icobtn" id="btnAbout" aria-label="About FaceVerse"><svg><use href="#i-info"/></svg></button>
+</header>
+
+<main>
+  <!-- SCHEDULE -->
+  <section class="view on" id="v-schedule" role="tabpanel" aria-label="Schedule">
+    <div class="vhead"><h1>Program</h1><p>Two halls running side by side. Pick a day, filter by what you came for, and tap any session for details.</p></div>
+    <div class="daybar" id="daybar" role="tablist" aria-label="Choose day"></div>
+    <div id="schedContent"></div>
+  </section>
+
+  <!-- TRACKS -->
+  <section class="view" id="v-tracks" role="tabpanel" aria-label="Explore by interest">
+    <div class="vhead"><h1>What are you here for?</h1><p>Tap an interest to see just those sessions and the faculty behind them.</p></div>
+    <div class="tracks-grid" id="tracksGrid"></div>
+  </section>
+
+  <!-- SPEAKERS -->
+  <section class="view" id="v-speakers" role="tabpanel" aria-label="Speakers">
+    <div class="vhead"><h1>Faculty</h1><p>Find a speaker to see every session they're on.</p></div>
+    <div class="searchbox"><svg><use href="#i-search"/></svg><input id="spkSearch" type="search" placeholder="Search faculty by name" autocomplete="off"></div>
+    <div id="speakerList"></div>
+  </section>
+
+  <!-- PLAN -->
+  <section class="view" id="v-plan" role="tabpanel" aria-label="My plan">
+    <div class="vhead"><h1>My plan</h1><p>The sessions you've saved, in order — with a heads-up if two overlap.</p></div>
+    <div id="planContent"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="view" id="v-about" role="tabpanel" aria-label="About">
+    <div class="vhead"><h1>FaceVerse</h1></div>
+    <div class="aboutfacts">
+      <div class="f"><b>25–27 Sep</b><span>2026</span></div>
+      <div class="f"><b>New Delhi</b><span>AIIMS &amp; The Ashok</span></div>
+      <div class="f"><b>2 halls</b><span>50+ faculty</span></div>
+    </div>
+    <div class="story">
+      <p class="lede">A universe of the face — mapped by the people who reshape it.</p>
+      <p>Look closely at the mark: a mesh wraps a half-face, and small red crosses fall on the points that decide a result — the radix, the tip-defining points, the malar high point, the mandibular border. Every surgeon in the room reads those landmarks differently, and that difference is the whole conversation.</p>
+      <p>FaceVerse India was built around that conversation. Not one philosophy, but the full spread of them under one roof — preservation and structure, scalpel and syringe, the reconstructive ward and the aesthetic suite — placed close enough together to argue productively.</p>
+      <p class="pull">Two days. Two halls. Every subspecialty that touches the face.</p>
+      <p>Day 0 opens at AIIMS with hands-on workshops. The summit then moves to The Ashok, where rhinoplasty and deep-plane facelift run alongside regenerative aesthetics, facial palsy, reconstruction and gender-affirming surgery — with free papers, panels and a quiz threaded through. This guide exists so none of that is hard to navigate.</p>
+    </div>
+    <div class="vhead" style="padding-bottom:0"><h1 style="font-size:24px">Reading room</h1><p>Short reads from the FaceVerse desk. Swap these for your own posts and faculty features.</p></div>
+    <div class="jgrid" id="journal"></div>
+    <p class="sample-note">Sample posts — replace the titles, art and links with your published articles.</p>
+  </section>
+</main>
+
+<nav class="botnav" role="tablist" aria-label="Sections">
+  <button class="navitem" data-view="schedule" aria-selected="true"><svg><use href="#i-cal"/></svg><span class="nl">Schedule</span></button>
+  <button class="navitem" data-view="tracks"><svg><use href="#i-grid"/></svg><span class="nl">Explore</span></button>
+  <button class="navitem" data-view="speakers"><svg><use href="#i-users"/></svg><span class="nl">Faculty</span></button>
+  <button class="navitem" data-view="plan"><svg><use href="#i-bookmark"/></svg><span class="nl">My plan</span><span class="badge-n" id="planBadge" style="display:none">0</span></button>
+</nav>
+
+<div class="sheet-wrap" id="sheetWrap">
+  <div class="sheet-bg" data-close></div>
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Details"><div class="grip"></div><div id="sheetBody"></div></div>
+</div>
+
+<div class="search-ov" id="searchOv">
+  <div class="search-top">
+    <div class="searchbox"><svg><use href="#i-search"/></svg><input id="ovInput" type="search" placeholder="Search talks or faculty" autocomplete="off"></div>
+    <button class="cancel" id="ovCancel">Cancel</button>
+  </div>
+  <div class="search-results" id="ovResults"><div class="sr-hint">Try a topic like “rhinoplasty” or a name like “Shreya Garg”.</div></div>
+</div>
+
+<script id="DATA" type="application/json">{"D":[{"d":1,"h":"A","t":"09:30","ti":"Facial Analysis & Nasal Aesthetic Units","sp":"Dr Ashish Gopal","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","ch":"Uday Monga · Amborish Nath · Ishwar Singh · GB Singh · Manesh Senan · Neelima Gupta","id":"s0","st":570,"en":585,"dur":15},{"d":1,"h":"A","t":"09:45","ti":"Dorsal Reduction & Osteotomies","sp":"Dr Ajay Jain","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s1","st":585,"en":600,"dur":15},{"d":1,"h":"A","t":"10:00","ti":"Respect the Dorsum: Preservation Philosophy","sp":"Dr Jyotsna Jagtap","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s2","st":600,"en":615,"dur":15},{"d":1,"h":"A","t":"10:15","ti":"Septal Surgery: Harvest, Support & Stability","sp":"Dr Poonam Sagar","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s3","st":615,"en":630,"dur":15},{"d":1,"h":"A","t":"10:30","ti":"Septoplasty in Functional Rhinoplasty","sp":"Dr Harpreet Singh Kochar","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s4","st":630,"en":645,"dur":15},{"d":1,"h":"A","t":"10:45","ti":"Spreader Grafts & Internal Valve Reconstruction","sp":"Dr Aru Handa","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s5","st":645,"en":660,"dur":15},{"d":1,"h":"A","t":"11:00","ti":"Alarplasty","sp":"Dr Shaily Mody","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s6","st":660,"en":675,"dur":15},{"d":1,"h":"A","t":"11:15","ti":"Cleft Rhinoplasty","sp":"Dr Kapil Soni","tr":["rhino","recon"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s7","st":675,"en":690,"dur":15},{"d":1,"h":"A","t":"11:30","ti":"Contemporary Rhinoplasty","sp":"Dr Vishnu Swaroop Reddy","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s8","st":690,"en":705,"dur":15},{"d":1,"h":"A","t":"11:45","ti":"Closed Structural Rhinoplasty","sp":"Dr Kshitij Patil","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s9","st":705,"en":720,"dur":15},{"d":1,"h":"A","t":"12:00","ti":"The Greatest Controversies in Rhinoplasty","sp":"Dr Soutrik Kumar","tr":["rhino"],"ty":"talk","bl":"Rhinoplasty: Principles, Structure & Decision-Making","id":"s10","st":720,"en":735,"dur":15},{"d":1,"h":"A","t":"12:15","ti":"Lunch","ty":"break","id":"s11","st":735,"en":795,"dur":60},{"d":1,"h":"A","t":"13:15","ti":"Facial Trauma — From Principles to Practice","sp":"Dr Jayanth Kumar Prakash","tr":["recon"],"ty":"keynote","bl":"Facial Rejuvenation","ch":"Anupam Kanodia · Rakesh Kumar · Kapil Soni · Mayuresh Verma","id":"s12","st":795,"en":835,"dur":40},{"d":1,"h":"A","t":"13:55","ti":"Transconjunctival Lower Blepharoplasty","sp":"Dr Jerin Thomas","tr":["eyes","facelift"],"ty":"talk","bl":"Facial Rejuvenation","id":"s13","st":835,"en":850,"dur":15},{"d":1,"h":"A","t":"14:10","ti":"Lower Lid Strategy: Fat Preservation, Reposition & Pitfalls","sp":"Dr Suresh K","tr":["eyes","facelift"],"ty":"talk","bl":"Facial Rejuvenation","id":"s14","st":850,"en":865,"dur":15},{"d":1,"h":"A","t":"14:25","ti":"Fixing the Frame: Blepharoplasty Across Age Groups","sp":"Dr Sahil Agarwal","tr":["eyes","facelift"],"ty":"talk","bl":"Facial Rejuvenation","id":"s15","st":865,"en":880,"dur":15},{"d":1,"h":"A","t":"14:40","ti":"Deep Plane Facelift","sp":"Dr Ozcan Cakmak","tr":["facelift"],"ty":"keynote","bl":"Facial Rejuvenation","id":"s16","st":880,"en":920,"dur":40},{"d":1,"h":"A","t":"15:20","ti":"Vector Planning in Deep Plane Facelift","sp":"Dr Prateek Sharma","tr":["facelift"],"ty":"talk","bl":"Facial Rejuvenation","id":"s17","st":920,"en":935,"dur":15},{"d":1,"h":"A","t":"15:35","ti":"Addressing the Neck","sp":"Dr Alwyn D'Souza","tr":["facelift"],"ty":"keynote","bl":"Facial Rejuvenation","id":"s18","st":935,"en":975,"dur":40},{"d":1,"h":"A","t":"16:15","ti":"Closing Keynote","sp":"To be confirmed","tr":[],"ty":"keynote","bl":"Facial Rejuvenation","pe":[],"id":"s19","st":975,"en":995,"dur":20},{"d":1,"h":"B","t":"10:00","ti":"Pan-Facial Assessment & Injection Planning: Neuromodulators","sp":"Dr Nikita Sethi Gandhi","tr":["nonsurg"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s20","st":600,"en":620,"dur":20},{"d":1,"h":"B","t":"10:20","ti":"Rheology & Strategic Points for Dermal Fillers: A Holistic Approach","sp":"Dr Monika Surana","tr":["nonsurg"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s21","st":620,"en":640,"dur":20},{"d":1,"h":"B","t":"10:40","ti":"Delayed Complications: Nodules, Biofilms & Lymphatics","sp":"Dr Amborish Nath","tr":["nonsurg"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s22","st":640,"en":660,"dur":20},{"d":1,"h":"B","t":"11:00","ti":"Scar Management: Surgical & Non-Surgical Approaches","sp":"Dr Lakshmi Sravya","tr":["nonsurg","regen"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s23","st":660,"en":680,"dur":20},{"d":1,"h":"B","t":"11:20","ti":"Solution-Focused Counselling in Aesthetic Practice","sp":"Dr Pankhuri Dudani","tr":["practice"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s24","st":680,"en":700,"dur":20},{"d":1,"h":"B","t":"11:40","ti":"When Non-Surgical Fails: Identifying Surgical Windows","sp":"Dr Shreya Garg","tr":["nonsurg","facelift"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s25","st":700,"en":720,"dur":20},{"d":1,"h":"B","t":"12:00","ti":"Fat Grafting in Aesthetic Practice","sp":"Dr Suresh K","tr":["facelift","regen"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s26","st":720,"en":740,"dur":20},{"d":1,"h":"B","t":"12:20","ti":"Building the Modern Aesthetic Practice Through Brand Positioning, Technology & Strategy","sp":"Dr Pragati Shubha","tr":["practice"],"ty":"talk","bl":"Assessment, Planning & Decision-Making","id":"s27","st":740,"en":760,"dur":20},{"d":1,"h":"B","t":"12:40","ti":"Lunch","ty":"break","id":"s28","st":760,"en":795,"dur":35},{"d":1,"h":"B","t":"13:15","ti":"Threadlifts: Indications, Limits & Tissue Behaviour","sp":"Dr Ankur Sarin","tr":["nonsurg"],"ty":"talk","bl":"Threads, Energy & Facial Rejuvenation","id":"s29","st":795,"en":825,"dur":30},{"d":1,"h":"B","t":"13:45","ti":"Infinite Threads: A Viable Alternative to the Facelift?","sp":"Dr Amit Gupta","tr":["nonsurg","facelift"],"ty":"talk","bl":"Threads, Energy & Facial Rejuvenation","id":"s30","st":825,"en":855,"dur":30},{"d":1,"h":"B","t":"14:15","ti":"Non-Surgical Rejuvenation: Periorbital & Perioral Region","sp":"Dr Arun Yadav","tr":["nonsurg","eyes"],"ty":"talk","bl":"Threads, Energy & Facial Rejuvenation","id":"s31","st":855,"en":875,"dur":20},{"d":1,"h":"B","t":"14:35","ti":"Thick vs Thin Skin: Adapting Treatment","sp":"Dr Stuti Mahajan","tr":["nonsurg"],"ty":"talk","bl":"Threads, Energy & Facial Rejuvenation","id":"s32","st":875,"en":895,"dur":20},{"d":1,"h":"B","t":"14:55","ti":"Pigment in Indian Skin: Laser Selection, Sequencing & Pitfalls","sp":"Dr Kabir Sardana","tr":["nonsurg"],"ty":"talk","bl":"Threads, Energy & Facial Rejuvenation","id":"s33","st":895,"en":915,"dur":20},{"d":1,"h":"B","t":"15:15","ti":"Energy-Based Facelifting","sp":"Dr Jushya Bhatia Sarin","tr":["nonsurg","facelift"],"ty":"talk","bl":"Threads, Energy & Facial Rejuvenation","id":"s34","st":915,"en":945,"dur":30},{"d":1,"h":"B","t":"15:45","ti":"Regenerative Therapies in Hair","sp":"Dr Chandni Jain","tr":["hair","regen"],"ty":"talk","bl":"Hair Restoration & Facial Design","id":"s35","st":945,"en":965,"dur":20},{"d":1,"h":"B","t":"16:05","ti":"Long Hair Transplant","sp":"Dr Neha Taneja","tr":["hair"],"ty":"talk","bl":"Hair Restoration & Facial Design","id":"s36","st":965,"en":995,"dur":30},{"d":1,"h":"B","t":"16:35","ti":"Designing the Hairline: Framing the Face","sp":"Dr Iftekhar Khan","tr":["hair"],"ty":"talk","bl":"Hair Restoration & Facial Design","id":"s37","st":995,"en":1015,"dur":20},{"d":1,"h":"B","t":"16:55","ti":"Sequencing Treatments: Toxin, Filler & Devices","sp":"Dr Meghna Poonia","tr":["nonsurg"],"ty":"talk","bl":"Hair Restoration & Facial Design","id":"s38","st":1015,"en":1035,"dur":20},{"d":1,"h":"B","t":"17:15","ti":"Quiz Prelims","ty":"quiz","id":"s39","st":1035,"en":1055,"dur":20},{"d":2,"h":"A","t":"09:30","ti":"Otoplasty: Subtle Corrections That Matter","sp":"Dr Jerin Thomas","tr":["recon"],"ty":"talk","bl":"Microtia & Auricular Reconstruction","ch":"Ravi Meher · Raman Sharma · Mohnish Grover","id":"s40","st":570,"en":585,"dur":15},{"d":2,"h":"A","t":"09:45","ti":"Microtia: Framework Design & Planning","sp":"Dr Kapil Soni","tr":["recon"],"ty":"talk","bl":"Microtia & Auricular Reconstruction","id":"s41","st":585,"en":600,"dur":15},{"d":2,"h":"A","t":"10:00","ti":"Auricular Reconstruction: Technique & Staging","sp":"Dr Arvind Kairo","tr":["recon"],"ty":"talk","bl":"Microtia & Auricular Reconstruction","id":"s42","st":600,"en":615,"dur":15},{"d":2,"h":"A","t":"10:15","ti":"Challenges in Pinna Reconstruction","sp":"Dr Vijay Gakhar","tr":["recon"],"ty":"talk","bl":"Microtia & Auricular Reconstruction","id":"s43","st":615,"en":630,"dur":15},{"d":2,"h":"A","t":"10:30","ti":"Facial Trauma: Let's Evolve Together","sp":"Dr Mayuresh Verma","tr":["recon"],"ty":"talk","bl":"Facial Trauma & Reconstruction","id":"s44","st":630,"en":645,"dur":15},{"d":2,"h":"A","t":"10:45","ti":"Local Flaps in Facial Trauma: Design & Execution","sp":"Dr Manesh Senan","tr":["recon"],"ty":"talk","bl":"Facial Trauma & Reconstruction","id":"s45","st":645,"en":660,"dur":15},{"d":2,"h":"A","t":"11:00","ti":"Facial Trauma — Acute to Secondary Management","sp":"Dr Rajesh Yadav","tr":["recon"],"ty":"talk","bl":"Facial Trauma & Reconstruction","id":"s46","st":660,"en":705,"dur":45},{"d":2,"h":"A","t":"11:45","ti":"Principles of Facial Reconstruction","sp":"Dr Smriti Panda","tr":["recon"],"ty":"talk","bl":"Facial Trauma & Reconstruction","id":"s47","st":705,"en":720,"dur":15},{"d":2,"h":"A","t":"12:00","ti":"Lunch","ty":"break","id":"s48","st":720,"en":795,"dur":75},{"d":2,"h":"A","t":"13:15","ti":"Local Flaps in Facial Reconstruction","sp":"Dr Rajeev Kumar","tr":["recon"],"ty":"talk","bl":"Reconstructive Masterclass","id":"s49","st":795,"en":810,"dur":15},{"d":2,"h":"A","t":"13:30","ti":"Principles & Practice of Maxillary Reconstruction","sp":"Dr Subramanian Iyer","tr":["recon"],"ty":"keynote","bl":"Reconstructive Masterclass","id":"s50","st":810,"en":850,"dur":40},{"d":2,"h":"A","t":"14:10","ti":"When & How to Address Iatrogenic Facial Palsy after Otologic Surgery","sp":"Dr Prem Sagar","tr":["palsy"],"ty":"talk","bl":"Facial Palsy & Reanimation","ch":"Chirom Amit Singh · Kapil Sikka · Ajit Man Singh · JC Passey","id":"s51","st":850,"en":865,"dur":15},{"d":2,"h":"A","t":"14:25","ti":"Gold Weight Implant","sp":"Dr Hitesh Verma","tr":["palsy"],"ty":"talk","bl":"Facial Palsy & Reanimation","id":"s52","st":865,"en":880,"dur":15},{"d":2,"h":"A","t":"14:40","ti":"Facial Masseteric Nerve Transfer","sp":"Dr Chirom Amit Singh","tr":["palsy"],"ty":"talk","bl":"Facial Palsy & Reanimation","id":"s53","st":880,"en":895,"dur":15},{"d":2,"h":"A","t":"14:55","ti":"Botulinum Toxin in Synkinesis","sp":"Dr Anup Singh","tr":["palsy","nonsurg"],"ty":"talk","bl":"Facial Palsy & Reanimation","id":"s54","st":895,"en":910,"dur":15},{"d":2,"h":"A","t":"15:10","ti":"Facial Palsy — Evaluation & Strategy","sp":"Dr Alok Thakar","tr":["palsy"],"ty":"keynote","bl":"Facial Palsy & Reanimation","id":"s55","st":910,"en":950,"dur":40},{"d":2,"h":"A","t":"15:50","ti":"Facial Palsy — Timing, Technique & Expectations","sp":"Panel · Moderator: Dr Kapil Sikka + Faculty","tr":["palsy"],"ty":"panel","bl":"Facial Palsy & Reanimation","pe":["Dr Kapil Sikka"],"id":"s56","st":950,"en":990,"dur":40},{"d":2,"h":"A","t":"16:30","ti":"Facial Feminisation Surgery","sp":"Dr Lucas Patrocinio","tr":["gender"],"ty":"keynote","bl":"Facial Feminisation: Form, Function & Identity","ch":"Amborish Nath · Esha Roy · Suresh K","id":"s57","st":990,"en":1030,"dur":40},{"d":2,"h":"A","t":"17:10","ti":"Voice Feminisation","sp":"Dr Shuchita Singh","tr":["gender"],"ty":"talk","bl":"Facial Feminisation: Form, Function & Identity","id":"s58","st":1030,"en":1045,"dur":15},{"d":2,"h":"A","t":"17:25","ti":"Nasal Feminisation","sp":"Dr Shreya Garg","tr":["gender","rhino"],"ty":"talk","bl":"Facial Feminisation: Form, Function & Identity","id":"s59","st":1045,"en":1060,"dur":15},{"d":2,"h":"A","t":"17:40","ti":"Advanced Tip Plasty","sp":"Dr Tomas Patrocinio","tr":["gender","rhino"],"ty":"talk","bl":"Facial Feminisation: Form, Function & Identity","id":"s60","st":1060,"en":1080,"dur":20},{"d":2,"h":"B","t":"09:30","ti":"Peptides in Aesthetic Medicine: Mechanisms, Evidence & Clinical Relevance","sp":"Dr Tanvi Dev","tr":["regen","nonsurg"],"ty":"talk","bl":"Regenerative Aesthetics & Biological Modulation","id":"s61","st":570,"en":590,"dur":20},{"d":2,"h":"B","t":"09:50","ti":"Exosomes — Wonder Drug or Hype?","sp":"Dr Arun Yadav","tr":["regen"],"ty":"talk","bl":"Regenerative Aesthetics & Biological Modulation","id":"s62","st":590,"en":630,"dur":40},{"d":2,"h":"B","t":"10:30","ti":"Skin Inflammation as a Driver of Ageing","sp":"Dr Lakshmi Sravya","tr":["regen","nonsurg"],"ty":"talk","bl":"Skin Behaviour & Personalisation","id":"s63","st":630,"en":650,"dur":20},{"d":2,"h":"B","t":"10:50","ti":"Post-Weight Loss Face: Sequencing Strategy","sp":"Dr Amborish Nath","tr":["facelift","nonsurg"],"ty":"talk","bl":"Skin Behaviour & Personalisation","id":"s64","st":650,"en":670,"dur":20},{"d":2,"h":"B","t":"11:10","ti":"Role of Medical Micropigmentation in Facial Aesthetics","sp":"Dr Meghna Poonia","tr":["nonsurg","regen"],"ty":"talk","bl":"Skin Behaviour & Personalisation","id":"s65","st":670,"en":690,"dur":20},{"d":2,"h":"B","t":"11:30","ti":"Lateral Canthal Rejuvenation Using Fillers","sp":"Dr Varad Saptarshi","tr":["nonsurg","eyes"],"ty":"talk","bl":"Precision Facial Aesthetics & Gender-Affirming Procedures","id":"s66","st":690,"en":710,"dur":20},{"d":2,"h":"B","t":"11:50","ti":"Minimally Invasive Techniques for Nose Rejuvenation","sp":"Dr Manya Thakur","tr":["nonsurg","rhino"],"ty":"talk","bl":"Precision Facial Aesthetics & Gender-Affirming Procedures","id":"s67","st":710,"en":730,"dur":20},{"d":2,"h":"B","t":"12:10","ti":"Ptosis Correction","sp":"Dr Rwituja Thomas Grover","tr":["eyes"],"ty":"talk","bl":"Precision Facial Aesthetics & Gender-Affirming Procedures","id":"s68","st":730,"en":750,"dur":20},{"d":2,"h":"B","t":"12:30","ti":"Lunch","ty":"break","id":"s69","st":750,"en":810,"dur":60},{"d":2,"h":"B","t":"13:30","ti":"Wendler's Glottoplasty: Surgical Voice Feminisation","sp":"Dr Arvind Kairo","tr":["gender"],"ty":"talk","bl":"Precision Facial Aesthetics & Gender-Affirming Procedures","id":"s70","st":810,"en":830,"dur":20},{"d":2,"h":"B","t":"13:50","ti":"Beyond Indications: Clinical Decision-Making in Facial Aesthetics","sp":"Dr Prateek Sharma","tr":["practice","facelift"],"ty":"talk","bl":"Practice, Outcomes & Real-World Evolution","id":"s71","st":830,"en":850,"dur":20},{"d":2,"h":"B","t":"14:10","ti":"Facial Changes in OSA — Structure, Function & Aesthetics","sp":"Panel · Kanodia · Hitesh Verma · Saurabh Mittal · Uday Monga","tr":["facelift","practice"],"ty":"panel","bl":"Practice, Outcomes & Real-World Evolution","pe":["Dr Anupam Kanodia","Dr Hitesh Verma","Dr Saurabh Mittal","Dr Uday Monga"],"id":"s72","st":850,"en":890,"dur":40},{"d":2,"h":"B","t":"14:50","ti":"Quiz Finals","ty":"quiz","id":"s73","st":890,"en":920,"dur":30},{"d":2,"h":"B","t":"16:00","ti":"Facial Plastic Surgery in Practice: Building, Evolving & Sustaining a Modern Aesthetic Practice","sp":"Panel · Mod: Dr Prateek Sharma & Dr Shreya Garg + Faculty","tr":["practice"],"ty":"panel","bl":"Practice, Outcomes & Real-World Evolution","pe":["Dr Prateek Sharma","Dr Shreya Garg","Dr Stuti Mahajan","Dr Lakshmi Sravya","Dr Arun Yadav","Dr Suresh K","Dr Jerin Thomas"],"id":"s74","st":960,"en":1000,"dur":40},{"d":2,"h":"B","t":"16:40","ti":"Closing / Awards","ty":"close","id":"s75","st":1000,"en":1020,"dur":20}],"TRACKS":{"rhino":{"label":"Rhinoplasty","c":"var(--t-rhino)"},"nonsurg":{"label":"Non-Surgical & Injectables","c":"var(--t-nonsurg)"},"facelift":{"label":"Facelift & Rejuvenation","c":"var(--t-facelift)"},"eyes":{"label":"Eyes & Periorbital","c":"var(--t-eyes)"},"recon":{"label":"Reconstruction & Trauma","c":"var(--t-recon)"},"palsy":{"label":"Facial Palsy & Reanimation","c":"var(--t-palsy)"},"gender":{"label":"Gender-Affirming","c":"var(--t-gender)"},"hair":{"label":"Hair Restoration","c":"var(--t-hair)"},"regen":{"label":"Regenerative & Skin","c":"var(--t-regen)"},"practice":{"label":"Practice & Business","c":"var(--t-practice)"}},"bounds":{"1":{"min":570,"max":1055},"2":{"min":570,"max":1080}}}</script>
+<script>
+const {D,TRACKS,bounds}=JSON.parse(document.getElementById("DATA").textContent);
+const TMETA={
+  rhino:{s:"Rhinoplasty"},nonsurg:{s:"Non-Surgical"},facelift:{s:"Facelift"},eyes:{s:"Eyes & Orbit"},
+  recon:{s:"Reconstruction"},palsy:{s:"Facial Palsy"},gender:{s:"Gender-Affirming"},hair:{s:"Hair"},
+  regen:{s:"Regenerative"},practice:{s:"Practice"}
+};
+const TORDER=Object.keys(TRACKS);
+const DAYS=[
+  {d:1,dn:"Day 1",dd:"Fri 26 Sep"},
+  {d:2,dn:"Day 2",dd:"Sat 27 Sep"}
+];
+const esc=s=>(s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tc=k=>getComputedStyle(document.documentElement).getPropertyValue("--t-"+k).trim()||"#7A5E54";
+const fmt=m=>String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");
+const byId=id=>document.getElementById(id);
+
+/* -------- state -------- */
+let state={view:"schedule",day:1,sview:"grid",tracks:new Set(),plan:new Set()};
+try{const p=JSON.parse(localStorage.getItem("fv26_plan")||"[]");state.plan=new Set(p);}catch(e){}
+const savePlan=()=>{try{localStorage.setItem("fv26_plan",JSON.stringify([...state.plan]))}catch(e){}};
+
+/* -------- speaker helpers -------- */
+const initials=n=>{const p=n.replace(/^Dr\.?\s+/i,"").trim().split(/\s+/);return ((p[0]||"")[0]||"")+((p[p.length-1]||"")[0]||"");};
+function speakerMap(){
+  const m=new Map();
+  D.forEach(r=>{ if(!r.sp||r.ty==="break") return;
+    if(!m.has(r.sp)) m.set(r.sp,{name:r.sp,sessions:[],tracks:{}});
+    const o=m.get(r.sp); o.sessions.push(r);
+    (r.tr||[]).forEach(t=>o.tracks[t]=(o.tracks[t]||0)+1);
+  });
+  return m;
+}
+const primaryTrack=o=>{let best=null,n=-1;for(const k in o.tracks){if(o.tracks[k]>n){n=o.tracks[k];best=k;}}return best||"practice";};
+
+/* -------- filtering -------- */
+const matchTrack=r=> state.tracks.size===0 || (r.tr||[]).some(t=>state.tracks.has(t));
+
+/* ============ SCHEDULE ============ */
+function renderDaybar(){
+  byId("daybar").innerHTML=DAYS.map(x=>`
+    <button class="dayseg" role="tab" data-day="${x.d}" aria-selected="${x.d===state.day}">
+      <span class="dn">${x.dn}</span><span class="dd">${x.dd}</span></button>`).join("");
+}
+function renderSchedule(){
+  const host=byId("schedContent");
+  const controls=`
+    <div class="ctrls">
+      <div class="toggle" role="group" aria-label="View">
+        <button data-sview="grid" aria-pressed="${state.sview==='grid'}"><svg><use href="#i-grid"/></svg>Both halls</button>
+        <button data-sview="list" aria-pressed="${state.sview==='list'}"><svg><use href="#i-list"/></svg>Timeline</button>
+      </div>
+      <div class="legend"><span><i class="la"></i>Hall A</span><span><i class="lb"></i>Hall B</span></div>
+    </div>
+    <div class="trackrow" id="trackrow"></div>
+    <div class="filternote" id="filternote"></div>`;
+  host.innerHTML=controls + (state.sview==="grid"?`<div id="calWrap"></div>`:`<div class="feed" id="feed"></div>`);
+  renderTrackChips();
+  renderFilterNote();
+  if(state.sview==="grid") renderGrid(); else renderList();
+}
+function renderTrackChips(){
+  const row=byId("trackrow"); if(!row) return;
+  const dayRows=D.filter(r=>r.d===state.day && r.ty!=="break");
+  const chips=[`<button class="tchip all" data-track="__all" aria-pressed="${state.tracks.size===0}">All sessions</button>`];
+  TORDER.forEach(k=>{
+    const has=dayRows.some(r=>(r.tr||[]).includes(k)); if(!has) return;
+    chips.push(`<button class="tchip" data-track="${k}" style="--tc:${tc(k)}" aria-pressed="${state.tracks.has(k)}">
+      <span class="dot"></span>${esc(TRACKS[k].label)}</button>`);
+  });
+  row.innerHTML=chips.join("");
+}
+function renderFilterNote(){
+  const el=byId("filternote"); if(!el) return;
+  if(state.tracks.size===0){ el.innerHTML=""; return; }
+  const sel=D.filter(r=>r.d===state.day && r.ty!=="break" && matchTrack(r));
+  const spk=new Set(sel.map(r=>r.sp).filter(Boolean));
+  const names=[...state.tracks].map(k=>TRACKS[k].label).join(", ");
+  el.innerHTML=`Showing <b>${esc(names)}</b> — ${sel.length} session${sel.length!==1?"s":""}, ${spk.size} speaker${spk.size!==1?"s":""}.
+    <button class="clearlink" data-clear>Clear</button>`;
+}
+/* ---- GRID (proportional two-lane calendar) ---- */
+function renderGrid(){
+  const wrap=byId("calWrap"); if(!wrap) return;
+  const b=bounds[state.day], ppm=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--ppm"));
+  const top=Math.floor(b.min/30)*30, bot=Math.ceil(b.max/30)*30;
+  const H=(bot-top)*ppm;
+  // 30-min gridlines, hourly labels
+  let lines="",hrs="";
+  for(let m=top;m<=bot;m+=30){ const y=(m-top)*ppm;
+    lines+=`<div class="ln" style="top:${y}px"></div>`;
+    if(m%60===0) hrs+=`<div class="hr" style="top:${y}px">${fmt(m)}</div>`;
+  }
+  const evtHTML=r=>{
+    const y=(r.st-top)*ppm, h=Math.max(r.dur*ppm-4,22);
+    const sizeCls=h<40?"tiny":(h<64?"short":"");
+    const saved=state.plan.has(r.id)?" saved":"";
+    const dim=(!matchTrack(r) && state.tracks.size)?"opacity:.28;":"";
+    if(r.ty==="break") return `<div class="evt brk" style="top:${y}px;height:${h}px;${dim}"><span class="eti">${esc(r.ti)}</span></div>`;
+    const col=tc((r.tr&&r.tr[0])||"practice");
+    const badge=r.ty==="keynote"?`<span class="badge key">Keynote</span>`:(r.ty==="panel"?`<span class="badge pan">Panel</span>`:"");
+    const plen=(r.ty==="keynote"||r.ty==="panel")?" plenary":"";
+    return `<button class="evt ${sizeCls}${saved}${plen}" data-sess="${r.id}" style="top:${y}px;height:${h}px;--ec:${col};${dim}">
+      <svg class="savemark"><use href="#i-plus"/></svg>
+      ${badge}
+      <span class="et">${fmt(r.st)}</span>
+      <span class="eti">${esc(r.ti)}</span>
+      ${r.sp?`<span class="esp">${esc(r.sp)}</span>`:""}
+    </button>`;
+  };
+  const A=D.filter(r=>r.d===state.day&&r.h==="A").map(evtHTML).join("");
+  const B=D.filter(r=>r.d===state.day&&r.h==="B").map(evtHTML).join("");
+  wrap.innerHTML=`
+    <div class="lanehead">
+      <div></div>
+      <div class="lh a"><span class="pin"><svg><use href="#i-pin"/></svg></span>Hall A</div>
+      <div class="lh b"><span class="pin"><svg><use href="#i-pin"/></svg></span>Hall B</div>
+    </div>
+    <div class="cal" style="height:${H}px">
+      <div class="hlines">${lines}</div>
+      <div class="cols" style="height:${H}px">
+        <div class="gutter">${hrs}</div>
+        <div class="lane">${A}</div>
+        <div class="lane">${B}</div>
+      </div>
+      ${nowLine(top,ppm)}
+    </div>`;
+}
+function nowLine(top,ppm){
+  const now=new Date(); const map={1:"2026-09-26",2:"2026-09-27"};
+  const iso=now.toISOString().slice(0,10);
+  if(iso!==map[state.day]) return "";
+  const mins=now.getHours()*60+now.getMinutes();
+  const b=bounds[state.day]; if(mins<b.min||mins>b.max) return "";
+  return `<div class="nowline" style="top:${(mins-top)*ppm}px"></div>`;
+}
+
+/* ---- LIST (chronological feed) ---- */
+function renderList(){
+  const feed=byId("feed"); if(!feed) return;
+  let rows=D.filter(r=>r.d===state.day && r.ty!=="break" && matchTrack(r))
+            .sort((a,b)=>a.st-b.st || (a.h<b.h?-1:1));
+  if(!rows.length){ feed.innerHTML=emptyFilter(); return; }
+  let html="",lastHr=-1;
+  rows.forEach(r=>{
+    const hr=Math.floor(r.st/60);
+    if(hr!==lastHr){ html+=`<div class="hsep"><b>${String(hr).padStart(2,"0")}:00</b><span class="rule"></span></div>`; lastHr=hr; }
+    html+=rowHTML(r);
+  });
+  feed.innerHTML=html;
+}
+function rowHTML(r){
+  const col=tc((r.tr&&r.tr[0])||"practice");
+  const saved=state.plan.has(r.id);
+  const hall=r.h==="A"?"a":"b";
+  const badge=r.ty==="keynote"?`<span class="badge key" style="margin-right:6px">Keynote</span>`:(r.ty==="panel"?`<span class="badge pan" style="margin-right:6px">Panel</span>`:"");
+  const pills=(r.tr||[]).map(t=>`<span class="pill"><span class="dot" style="background:${tc(t)}"></span>${esc(TMETA[t]?.s||TRACKS[t].label)}</span>`).join("");
+  const av=r.sp?`<span class="avatar" style="background:${col}">${esc(initials(r.sp))}</span><span class="nm">${esc(r.sp)}</span>`:"";
+  return `<button class="row${saved?" saved":""}" data-sess="${r.id}" style="--ec:${col}">
+    <div class="rt"><div class="t1">${fmt(r.st)}</div><div class="t2">${r.dur}m</div></div>
+    <div class="rb">
+      <span class="hallpill ${hall}"><svg style="width:11px;height:11px"><use href="#i-pin"/></svg>Hall ${r.h}</span>
+      <h3 class="rti">${badge}${esc(r.ti)}</h3>
+      ${av?`<div class="rsp">${av}</div>`:""}
+      <div class="pills">${pills}</div>
+    </div>
+    <span class="savebtn" role="button" aria-pressed="${saved}" data-save="${r.id}" aria-label="${saved?"Remove from plan":"Add to plan"}">
+      <svg><use href="#i-${saved?"check":"plus"}"/></svg></span>
+  </button>`;
+}
+const emptyFilter=()=>`<div class="empty"><svg class="em-ic"><use href="#i-search"/></svg>
+  <h3>No sessions match</h3><p>No talks in this day fit the interests you picked. Try clearing a filter.</p>
+  <button class="cta" data-clear><svg style="width:17px;height:17px"><use href="#i-plus"/></svg>Clear filters</button></div>`;
+
+/* ============ TRACKS ============ */
+function renderTracks(){
+  const grid=byId("tracksGrid");
+  grid.innerHTML=TORDER.map(k=>{
+    const rows=D.filter(r=>(r.tr||[]).includes(k)&&r.ty!=="break");
+    const spk=new Set(rows.map(r=>r.sp).filter(Boolean));
+    const col=tc(k);
+    return `<button class="tcard" data-gotrack="${k}" style="background:${col}">
+      <span class="plus-bg"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+      <h3>${esc(TRACKS[k].label)}</h3>
+      <div class="cnt"><b>${rows.length}</b> session${rows.length!==1?"s":""} · ${spk.size} faculty</div>
+    </button>`;
+  }).join("");
+}
+
+/* ============ SPEAKERS ============ */
+let SPK=[...speakerMap().values()].sort((a,b)=>a.name.replace(/^Dr\.?\s+/i,"").localeCompare(b.name.replace(/^Dr\.?\s+/i,"")));
+function renderSpeakers(q=""){
+  const host=byId("speakerList");
+  const ql=q.trim().toLowerCase();
+  const list=SPK.filter(s=>!ql||s.name.toLowerCase().includes(ql));
+  if(!list.length){ host.innerHTML=`<div class="empty"><svg class="em-ic"><use href="#i-users"/></svg><h3>No one by that name</h3><p>Check the spelling, or clear the search to see all faculty.</p></div>`; return; }
+  host.innerHTML=list.map(s=>{
+    const pt=primaryTrack(s),col=tc(pt);
+    const dots=Object.keys(s.tracks).slice(0,4).map(t=>`<i style="background:${tc(t)}"></i>`).join("");
+    return `<button class="speaker" data-spk="${esc(s.name)}">
+      <span class="avatar" style="background:${col}">${esc(initials(s.name))}</span>
+      <span><span class="snm">${esc(s.name)}</span>
+        <span class="smeta">${s.sessions.length} session${s.sessions.length!==1?"s":""}<span class="tdots">${dots}</span></span></span>
+      <span class="chev"><svg><use href="#i-chev"/></svg></span>
+    </button>`;
+  }).join("");
+}
+
+/* ============ PLAN ============ */
+function renderPlan(){
+  const host=byId("planContent");
+  const saved=D.filter(r=>state.plan.has(r.id)).sort((a,b)=>a.d-b.d||a.st-b.st);
+  updatePlanBadge();
+  if(!saved.length){
+    host.innerHTML=`<div class="empty"><svg class="em-ic"><use href="#i-bookmark"/></svg>
+      <h3>Your plan is empty</h3><p>Tap the <b>+</b> on any session and it lands here, sorted and checked for clashes.</p>
+      <button class="cta" data-goview="schedule"><svg style="width:17px;height:17px"><use href="#i-cal"/></svg>Browse the program</button></div>`;
+    return;
+  }
+  // clash detection per day
+  const clashIds=new Set(); const byDay={};
+  saved.forEach(r=>{(byDay[r.d]=byDay[r.d]||[]).push(r);});
+  Object.values(byDay).forEach(arr=>{
+    for(let i=0;i<arr.length;i++)for(let j=i+1;j<arr.length;j++){
+      if(arr[i].st<arr[j].en && arr[j].st<arr[i].en){ clashIds.add(arr[i].id); clashIds.add(arr[j].id); }
+    }
+  });
+  let html=`<div class="plan-head"><span class="plan-count"><b>${saved.length}</b> session${saved.length!==1?"s":""} saved</span>
+    <button class="clearlink" data-clearplan>Clear all</button></div>`;
+  if(clashIds.size){ html+=`<div class="clash"><svg><use href="#i-warn"/></svg>
+    <span>Some saved sessions overlap in time — they're marked <b>Overlaps</b> below. You can only be in one hall at once, so you may need to choose.</span></div>`; }
+  DAYS.filter(d=>d.d>0).forEach(dobj=>{
+    const arr=byDay[dobj.d]; if(!arr||!arr.length) return;
+    html+=`<div class="plan-day">${dobj.dn} · ${dobj.dd}</div>`;
+    arr.forEach(r=>{ html+=rowHTML(r).replace('class="row',`class="row${clashIds.has(r.id)?" clashing":""}`); });
+  });
+  host.innerHTML=html;
+}
+function updatePlanBadge(){
+  const n=state.plan.size, el=byId("planBadge");
+  el.textContent=n; el.style.display=n?"grid":"none";
+}
+
+/* ============ SHEET ============ */
+let lastFocus=null;
+function openSheet(html){
+  byId("sheetBody").innerHTML=html;
+  const w=byId("sheetWrap"); lastFocus=document.activeElement; w.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeSheet(){ byId("sheetWrap").classList.remove("open"); document.body.style.overflow=""; if(lastFocus)lastFocus.focus(); }
+function sessionSheet(id){
+  const r=D.find(x=>x.id===id); if(!r) return;
+  const saved=state.plan.has(id), col=tc((r.tr&&r.tr[0])||"practice");
+  const pills=(r.tr||[]).map(t=>`<span class="pill"><span class="dot" style="background:${tc(t)}"></span>${esc(TRACKS[t].label)}</span>`).join("");
+  const badge=r.ty==="keynote"?`<span class="badge key">Keynote</span> `:(r.ty==="panel"?`<span class="badge pan">Panel</span> `:"");
+  openSheet(`
+    <div style="margin-bottom:4px">${badge}</div>
+    <h2>${esc(r.ti)}</h2>
+    <div class="pills">${pills}</div>
+    <div class="sh-meta">
+      <div class="m"><span class="mi"><svg><use href="#i-clock"/></svg></span><span><span class="mk">Time</span><span class="mv">${fmt(r.st)} – ${fmt(r.en)}</span></span></div>
+      <div class="m"><span class="mi"><svg><use href="#i-pin"/></svg></span><span><span class="mk">Where</span><span class="mv">Hall ${r.h} · ${DAYS.find(d=>d.d===r.d).dn}</span></span></div>
+      ${r.sp?`<div class="m"><span class="mi" style="background:${col};color:#fff"><b style="font-size:12px">${esc(initials(r.sp))}</b></span><span><span class="mk">Speaker</span><span class="mv">${esc(r.sp)}</span></span></div>`:""}
+    </div>
+    ${r.bl?`<div class="sh-block"><div class="lbl">Session</div>${esc(r.bl)}${r.ch?`<div style="margin-top:8px"><div class="lbl">Chairs</div>${esc(r.ch)}</div>`:""}</div>`:""}
+    <button class="sh-save" aria-pressed="${saved}" data-savesheet="${id}">
+      <svg><use href="#i-${saved?"check":"plus"}"/></svg>${saved?"Saved to your plan":"Add to my plan"}</button>
+  `);
+}
+function speakerSheet(name){
+  const s=speakerMap().get(name); if(!s) return;
+  const col=tc(primaryTrack(s));
+  const sess=s.sessions.slice().sort((a,b)=>a.d-b.d||a.st-b.st).map(r=>`
+    <button class="sh-sess" data-sess="${r.id}">
+      <span class="ss-t"><svg style="width:13px;height:13px;color:var(--ink-faint)"><use href="#i-clock"/></svg>${DAYS.find(d=>d.d===r.d).dn} · ${fmt(r.st)} · Hall ${r.h}</span>
+      <span class="ss-ti">${esc(r.ti)}</span></button>`).join("");
+  openSheet(`
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:6px">
+      <span class="avatar" style="width:54px;height:54px;font-size:18px;background:${col}">${esc(initials(name))}</span>
+      <div><h2 style="margin:0">${esc(name)}</h2><div style="color:var(--ink-soft);font-size:13.5px;margin-top:3px">${s.sessions.length} session${s.sessions.length!==1?"s":""} at FaceVerse</div></div>
+    </div>
+    <div style="margin-top:14px">${sess}</div>
+  `);
+}
+
+/* ============ JOURNAL ============ */
+function renderJournal(){
+  const posts=[
+    {k:"The mark",c:"var(--coral)",t:"The landmark motif, explained",p:"Why a mesh, a half-face and eight red crosses became the identity of the summit."},
+    {k:"Day 0 · AIIMS",c:"var(--t-nonsurg)",t:"Inside the pre-conference workshops",p:"A first look at the hands-on cadaver and injection labs that open FaceVerse."},
+    {k:"Faculty",c:"var(--t-facelift)",t:"Two halls, one question: how far can non-surgical go?",p:"The threads-versus-facelift debate that runs quietly through the whole program."}
+  ];
+  byId("journal").innerHTML=posts.map(x=>`
+    <button class="jpost">
+      <span class="thumb" style="background:${x.c}"><svg><use href="#i-doc"/></svg></span>
+      <span><span class="jk">${esc(x.k)}</span><h4>${esc(x.t)}</h4><p>${esc(x.p)}</p></span>
+    </button>`).join("");
+}
+
+/* ============ SEARCH OVERLAY ============ */
+function runSearch(q){
+  const el=byId("ovResults"), ql=q.trim().toLowerCase();
+  if(!ql){ el.innerHTML=`<div class="sr-hint">Try a topic like “rhinoplasty” or a name like “Shreya Garg”.</div>`; return; }
+  const talks=D.filter(r=>r.ty!=="break"&&((r.ti||"").toLowerCase().includes(ql)||(r.sp||"").toLowerCase().includes(ql))).slice(0,24);
+  const spk=SPK.filter(s=>s.name.toLowerCase().includes(ql)).slice(0,8);
+  let html="";
+  if(spk.length){ html+=`<div class="sr-cat">Faculty</div>`;
+    html+=spk.map(s=>`<button class="speaker" data-spk="${esc(s.name)}"><span class="avatar" style="background:${tc(primaryTrack(s))}">${esc(initials(s.name))}</span><span><span class="snm">${esc(s.name)}</span><span class="smeta">${s.sessions.length} session${s.sessions.length!==1?"s":""}</span></span><span class="chev"><svg><use href="#i-chev"/></svg></span></button>`).join("");
+  }
+  if(talks.length){ html+=`<div class="sr-cat">Sessions</div>`+talks.map(r=>rowHTML(r)).join(""); }
+  if(!html) html=`<div class="sr-hint">Nothing matches “${esc(q)}”. Try another word.</div>`;
+  el.innerHTML=html;
+}
+
+/* ============ NAV / VIEW ============ */
+function setView(v){
+  state.view=v;
+  document.querySelectorAll(".view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));
+  document.querySelectorAll(".navitem").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===v));
+  window.scrollTo({top:0,behavior:"instant" in window?"instant":"auto"});
+  if(v==="tracks")renderTracks();
+  if(v==="speakers")renderSpeakers(byId("spkSearch").value);
+  if(v==="plan")renderPlan();
+}
+function toggleSave(id){
+  if(state.plan.has(id))state.plan.delete(id); else state.plan.add(id);
+  savePlan(); updatePlanBadge();
+  // refresh visible surfaces
+  if(state.view==="schedule")renderSchedule();
+  if(state.view==="plan")renderPlan();
+  const sh=byId("sheetWrap");
+  if(sh.classList.contains("open")){ const b=byId("sheetBody").querySelector("[data-savesheet]"); if(b&&b.dataset.savesheet===id){ const s=state.plan.has(id); b.setAttribute("aria-pressed",s); b.innerHTML=`<svg><use href="#i-${s?"check":"plus"}"/></svg>${s?"Saved to your plan":"Add to my plan"}`; } }
+}
+
+/* ============ EVENTS ============ */
+document.addEventListener("click",e=>{
+  const t=e.target;
+  const nav=t.closest(".navitem"); if(nav){ setView(nav.dataset.view); return; }
+  const day=t.closest("[data-day]"); if(day){ state.day=+day.dataset.day; renderDaybar(); renderSchedule(); return; }
+  const sv=t.closest("[data-sview]"); if(sv){ state.sview=sv.dataset.sview; renderSchedule(); return; }
+  const ch=t.closest("[data-track]"); if(ch){ const k=ch.dataset.track;
+    if(k==="__all")state.tracks.clear(); else{ state.tracks.has(k)?state.tracks.delete(k):state.tracks.add(k); }
+    renderSchedule(); return; }
+  if(t.closest("[data-clear]")){ state.tracks.clear(); renderSchedule(); return; }
+  const gt=t.closest("[data-gotrack]"); if(gt){ state.tracks=new Set([gt.dataset.gotrack]); setView("schedule"); renderTrackChips&&renderSchedule(); return; }
+  const gv=t.closest("[data-goview]"); if(gv){ setView(gv.dataset.goview); return; }
+  const sb=t.closest("[data-save]"); if(sb){ e.stopPropagation(); toggleSave(sb.dataset.save); return; }
+  const ss=t.closest("[data-savesheet]"); if(ss){ toggleSave(ss.dataset.savesheet); return; }
+  const spk=t.closest("[data-spk]"); if(spk){ if(byId("searchOv").classList.contains("open"))closeSearch(); speakerSheet(spk.dataset.spk); return; }
+  const sess=t.closest("[data-sess]"); if(sess){ if(byId("searchOv").classList.contains("open"))closeSearch(); sessionSheet(sess.dataset.sess); return; }
+  if(t.closest("[data-clearplan]")){ state.plan.clear(); savePlan(); renderPlan(); return; }
+  if(t.closest("[data-close]")||t.classList.contains("sheet-bg")){ closeSheet(); return; }
+});
+byId("spkSearch").addEventListener("input",e=>renderSpeakers(e.target.value));
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ if(byId("searchOv").classList.contains("open"))closeSearch(); else closeSheet(); }});
+
+/* search overlay open/close */
+function openSearch(){ byId("searchOv").classList.add("open"); document.body.style.overflow="hidden"; setTimeout(()=>byId("ovInput").focus(),50); }
+function closeSearch(){ byId("searchOv").classList.remove("open"); document.body.style.overflow=""; byId("ovInput").value=""; runSearch(""); }
+byId("btnSearch").addEventListener("click",openSearch);
+byId("ovCancel").addEventListener("click",closeSearch);
+byId("ovInput").addEventListener("input",e=>runSearch(e.target.value));
+byId("btnAbout").addEventListener("click",()=>setView("about"));
+
+/* re-render grid on resize (ppm changes) */
+let rz; addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{ if(state.view==="schedule"&&state.sview==="grid"&&state.day>0)renderGrid(); },180);});
+
+/* init */
+renderDaybar(); renderSchedule(); renderJournal(); updatePlanBadge();
+</script>
+</body>
+</html>
